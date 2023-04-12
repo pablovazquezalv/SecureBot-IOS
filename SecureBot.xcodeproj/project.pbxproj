@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		883A893F29E721B2005C6A1D /* icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 883A893E29E721B2005C6A1D /* icon.svg */; };
 		883FF76429E74B3200F9B608 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883FF76329E74B3200F9B608 /* SplashViewController.swift */; };
+		88AFCB3229E76E2A004260F3 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AFCB3129E76E2A004260F3 /* logo.png */; };
 		88BDDBC129E717DB00BDF086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBC029E717DB00BDF086 /* AppDelegate.swift */; };
 		88BDDBC329E717DB00BDF086 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBC229E717DB00BDF086 /* SceneDelegate.swift */; };
 		88BDDBC529E717DB00BDF086 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBC429E717DB00BDF086 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 		88EFC59A29E76300008FB20B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59929E76300008FB20B /* RegisterViewController.swift */; };
 		88EFC59C29E7661A008FB20B /* TelefonoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */; };
 		88EFC59E29E76706008FB20B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59D29E76706008FB20B /* ProfileViewController.swift */; };
+		88EFC5A229E76C05008FB20B /* logoforiphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EFC5A129E76C05008FB20B /* logoforiphone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 /* Begin PBXFileReference section */
 		883A893E29E721B2005C6A1D /* icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon.svg; sourceTree = "<group>"; };
 		883FF76329E74B3200F9B608 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		88AFCB3129E76E2A004260F3 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		88BDDBBD29E717DB00BDF086 /* SecureBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BDDBC029E717DB00BDF086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88BDDBC229E717DB00BDF086 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		88EFC59929E76300008FB20B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelefonoViewController.swift; sourceTree = "<group>"; };
 		88EFC59D29E76706008FB20B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		88EFC5A129E76C05008FB20B /* logoforiphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoforiphone.png; path = PABLOVAZQUEZALVARADO/imgs/logoforiphone.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 		88BDDBF029E71AA600BDF086 /* imgs */ = {
 			isa = PBXGroup;
 			children = (
+				88AFCB3129E76E2A004260F3 /* logo.png */,
+				88EFC5A129E76C05008FB20B /* logoforiphone.png */,
 				883A893E29E721B2005C6A1D /* icon.svg */,
 				88BDDBF129E71AED00BDF086 /* 1681318669742.png */,
 			);
@@ -260,6 +266,8 @@
 				88BDDBCD29E717DD00BDF086 /* LaunchScreen.storyboard in Resources */,
 				88BDDBCA29E717DD00BDF086 /* Assets.xcassets in Resources */,
 				883A893F29E721B2005C6A1D /* icon.svg in Resources */,
+				88EFC5A229E76C05008FB20B /* logoforiphone.png in Resources */,
+				88AFCB3229E76E2A004260F3 /* logo.png in Resources */,
 				88BDDBF229E71AED00BDF086 /* 1681318669742.png in Resources */,
 				88BDDBC829E717DB00BDF086 /* Main.storyboard in Resources */,
 			);
