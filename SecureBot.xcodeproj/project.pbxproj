@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		883A893F29E721B2005C6A1D /* icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 883A893E29E721B2005C6A1D /* icon.svg */; };
+		883FF76429E74B3200F9B608 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883FF76329E74B3200F9B608 /* SplashViewController.swift */; };
 		88BDDBC129E717DB00BDF086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBC029E717DB00BDF086 /* AppDelegate.swift */; };
 		88BDDBC329E717DB00BDF086 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBC229E717DB00BDF086 /* SceneDelegate.swift */; };
 		88BDDBC529E717DB00BDF086 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBC429E717DB00BDF086 /* ViewController.swift */; };
@@ -16,6 +18,10 @@
 		88BDDBD829E717DD00BDF086 /* SecureBotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBD729E717DD00BDF086 /* SecureBotTests.swift */; };
 		88BDDBE229E717DD00BDF086 /* SecureBotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBE129E717DD00BDF086 /* SecureBotUITests.swift */; };
 		88BDDBE429E717DD00BDF086 /* SecureBotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBE329E717DD00BDF086 /* SecureBotUITestsLaunchTests.swift */; };
+		88BDDBF229E71AED00BDF086 /* 1681318669742.png in Resources */ = {isa = PBXBuildFile; fileRef = 88BDDBF129E71AED00BDF086 /* 1681318669742.png */; };
+		88EFC59A29E76300008FB20B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59929E76300008FB20B /* RegisterViewController.swift */; };
+		88EFC59C29E7661A008FB20B /* TelefonoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */; };
+		88EFC59E29E76706008FB20B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59D29E76706008FB20B /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		883A893E29E721B2005C6A1D /* icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon.svg; sourceTree = "<group>"; };
+		883FF76329E74B3200F9B608 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		88BDDBBD29E717DB00BDF086 /* SecureBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BDDBC029E717DB00BDF086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88BDDBC229E717DB00BDF086 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +57,10 @@
 		88BDDBDD29E717DD00BDF086 /* SecureBotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecureBotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BDDBE129E717DD00BDF086 /* SecureBotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureBotUITests.swift; sourceTree = "<group>"; };
 		88BDDBE329E717DD00BDF086 /* SecureBotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureBotUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		88BDDBF129E71AED00BDF086 /* 1681318669742.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1681318669742.png; sourceTree = "<group>"; };
+		88EFC59929E76300008FB20B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelefonoViewController.swift; sourceTree = "<group>"; };
+		88EFC59D29E76706008FB20B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +114,13 @@
 				88BDDBC029E717DB00BDF086 /* AppDelegate.swift */,
 				88BDDBC229E717DB00BDF086 /* SceneDelegate.swift */,
 				88BDDBC429E717DB00BDF086 /* ViewController.swift */,
+				883FF76329E74B3200F9B608 /* SplashViewController.swift */,
+				88EFC59929E76300008FB20B /* RegisterViewController.swift */,
+				88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */,
+				88EFC59D29E76706008FB20B /* ProfileViewController.swift */,
 				88BDDBC629E717DB00BDF086 /* Main.storyboard */,
 				88BDDBC929E717DD00BDF086 /* Assets.xcassets */,
+				88BDDBF029E71AA600BDF086 /* imgs */,
 				88BDDBCB29E717DD00BDF086 /* LaunchScreen.storyboard */,
 				88BDDBCE29E717DD00BDF086 /* Info.plist */,
 			);
@@ -125,6 +142,15 @@
 				88BDDBE329E717DD00BDF086 /* SecureBotUITestsLaunchTests.swift */,
 			);
 			path = SecureBotUITests;
+			sourceTree = "<group>";
+		};
+		88BDDBF029E71AA600BDF086 /* imgs */ = {
+			isa = PBXGroup;
+			children = (
+				883A893E29E721B2005C6A1D /* icon.svg */,
+				88BDDBF129E71AED00BDF086 /* 1681318669742.png */,
+			);
+			path = imgs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +259,8 @@
 			files = (
 				88BDDBCD29E717DD00BDF086 /* LaunchScreen.storyboard in Resources */,
 				88BDDBCA29E717DD00BDF086 /* Assets.xcassets in Resources */,
+				883A893F29E721B2005C6A1D /* icon.svg in Resources */,
+				88BDDBF229E71AED00BDF086 /* 1681318669742.png in Resources */,
 				88BDDBC829E717DB00BDF086 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,9 +286,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88EFC59C29E7661A008FB20B /* TelefonoViewController.swift in Sources */,
 				88BDDBC529E717DB00BDF086 /* ViewController.swift in Sources */,
+				88EFC59A29E76300008FB20B /* RegisterViewController.swift in Sources */,
 				88BDDBC129E717DB00BDF086 /* AppDelegate.swift in Sources */,
+				88EFC59E29E76706008FB20B /* ProfileViewController.swift in Sources */,
 				88BDDBC329E717DB00BDF086 /* SceneDelegate.swift in Sources */,
+				883FF76429E74B3200F9B608 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
