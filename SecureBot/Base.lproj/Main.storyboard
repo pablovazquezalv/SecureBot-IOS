@@ -460,7 +460,7 @@
         <!--Perfil-->
         <scene sceneID="IB9-OQ-g7p">
             <objects>
-                <viewController id="A3y-g1-O4l" sceneMemberID="viewController">
+                <viewController id="A3y-g1-O4l" customClass="ProfileViewController" customModule="SecureBot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CQJ-KI-FXH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -524,6 +524,9 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="gray" image="pencil" catalog="system" title="  Contraseña"/>
+                                                <connections>
+                                                    <action selector="cambiarPassword:" destination="A3y-g1-O4l" eventType="touchUpInside" id="BIR-d1-JGw"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -539,7 +542,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pablo Vazquez Alvarado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMq-ZR-Cf2">
                                 <rect key="frame" x="123" y="77" width="179" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="216" id="Oh6-AX-tCS"/>
                                     <constraint firstAttribute="height" constant="21" id="bON-7v-w3x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -565,6 +567,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="brain.head.profile" catalog="system" id="i7p-dO-aCz"/>
+                    <connections>
+                        <outlet property="emailTF" destination="aQe-G1-KeC" id="GM3-UR-V6f"/>
+                        <outlet property="empresaTF" destination="OpH-lE-4kg" id="c06-Y3-NqG"/>
+                        <outlet property="nombreUsuarioTF" destination="WxY-VL-3Q8" id="avc-Ot-JdX"/>
+                        <outlet property="telefonoTF" destination="T8A-b3-Rcn" id="Y7G-jK-cN5"/>
+                        <outlet property="usuarioTituloLB" destination="pMq-ZR-Cf2" id="m11-YL-1ar"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtY-Jb-IFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="9lp-NF-YEy" userLabel="Exit" sceneMemberID="exit"/>
