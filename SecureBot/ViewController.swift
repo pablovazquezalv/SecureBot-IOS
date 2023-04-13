@@ -66,14 +66,14 @@ class ViewController: UIViewController {
         if let email = emailTF.text
         {
             if let errorMessage = invalidEmail(email)
-                        {
-                            emailError.text = errorMessage
-                            emailError.isHidden = false
-                        }
-                        else
-                        {
-                            emailError.isHidden = true
-                        }
+            {
+                emailError.text = errorMessage
+                emailError.isHidden = false
+            }
+            else
+            {
+                emailError.isHidden = true
+            }
         }
         checkForm()
     }
@@ -168,7 +168,61 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    func postApi()
+    {
+
+        let url = URL(string: "https://securebot.ninja/api/v1/login")!
+        
+        guard url != nil else
+        {
+            print("error")
+            return
+        }
+
+        var request = URLRequest(url: url,cachePolicy: .useProtocolCachePolicy,timeoutInterval: 10)
+        request.httpMethod = "POST"
+        
+     
+           let email = emailTF.text ?? ""
+           let password = passwordTF.text ?? ""
+          
+
+           let requestBody: [String: Any] = [
+               "email": email,
+               "password": password
+           ]
+        
+        do {
+              let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+              request.httpBody = jsonData
+              request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+          } catch {
+              print("Error converting request body to JSON data: \(error)")
+              return
+          }
+          
+          let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+              if let error = error {
+                  print("Error posting request: \(error)")
+                  return
+              }
+              
+              guard let data = data else {
+                  print("No data received in response")
+                  return
+              }
+              
+              do {
+                  let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                  print("Response: \(responseJSON)")
+              } catch {
+                  print("Error parsing response JSON: \(error)")
+              }
+          }
+          
+          task.resume()
+        
+    }
     //Boton login
     @IBAction func loginAction(_ sender: Any)
     {
