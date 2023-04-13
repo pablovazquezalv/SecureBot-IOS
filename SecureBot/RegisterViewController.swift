@@ -20,6 +20,21 @@ class RegisterViewController: UIViewController
     @IBOutlet weak var confirmpasswordTF: UITextField!
     
     
+    @IBOutlet weak var nombreError: UILabel!
+    @IBOutlet weak var apError: UILabel!
+    @IBOutlet weak var amError: UILabel!
+    @IBOutlet weak var telError: UILabel!
+    @IBOutlet weak var emailError: UILabel!
+    
+    
+    @IBOutlet weak var passwordlblError: UILabel!
+    
+    
+    @IBOutlet weak var passwordconfirmlbError: UILabel!
+    
+    
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -30,6 +45,37 @@ class RegisterViewController: UIViewController
    
     
     
+    
+    func invalidName(_ value: String)-> String?
+    {
+      let expresionRegular = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", expresionRegular)
+
+        if !predicate.evaluate(with: value)
+                {
+                    return "Correo invalido"
+                }
+                
+                return nil
+    }
+    
+    
+    @IBAction func NameAction(_ sender: Any)
+    {
+        if let email = nombreTF.text
+        {
+            if let errorMessage = invalidName(email)
+                        {
+                nombreError.text = errorMessage
+                nombreError.isHidden = false
+                        }
+                        else
+                        {
+                            nombreError.isHidden = true
+                        }
+        }
+        
+    }
     
     
     
