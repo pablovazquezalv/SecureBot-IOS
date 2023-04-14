@@ -15,9 +15,11 @@ class TelefonoViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var numbertresTF: UITextField!
     @IBOutlet weak var numbercuatroTF: UITextField!
     
+    @IBOutlet weak var btnverificar: UIButton!
     override func viewDidLoad()
     {
-        
+        btnverificar.layer.cornerRadius = 7.0
+
         numberunoTF.delegate = self
         numberdosTF.delegate = self
         numbertresTF.delegate = self

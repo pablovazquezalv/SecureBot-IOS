@@ -31,7 +31,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad()
     {
-        
+        btnLogin.layer.cornerRadius = 7.0
         emailTF.delegate = self
         passwordTF.delegate = self
         super.viewDidLoad()

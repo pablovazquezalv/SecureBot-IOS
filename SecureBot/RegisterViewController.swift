@@ -49,6 +49,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         telefonoTF.delegate = self
         emailTF.delegate = self
         passwordTF.delegate = self
+        btnRegister.layer.cornerRadius = 7.0
+
         super.viewDidLoad()
         
         
