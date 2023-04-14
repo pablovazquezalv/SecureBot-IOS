@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AFs-6B-87W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wup-lj-Tsq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -62,7 +62,7 @@
                                                 <rect key="frame" x="0.0" y="113" width="314" height="34"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <connections>
                                                     <action selector="emailChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="3K4-VI-TBU"/>
                                                 </connections>
@@ -77,7 +77,7 @@
                                                 <rect key="frame" x="0.0" y="223" width="314" height="34"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <connections>
                                                     <action selector="passwordChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="tAZ-dV-KUg"/>
                                                 </connections>
@@ -171,7 +171,7 @@
                                 <rect key="frame" x="20" y="235" width="353" height="583"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="r6Y-f2-xsA">
-                                        <rect key="frame" x="30" y="-260" width="314" height="858"/>
+                                        <rect key="frame" x="30" y="-350" width="314" height="858"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear cuenta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTU-Sd-Kop">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="25.5"/>
@@ -224,7 +224,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefono" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vZh-Mv-ZCM">
                                                 <rect key="frame" x="0.0" y="375.5" width="314" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="telChanged:" destination="omD-TC-jCa" eventType="editingChanged" id="uVp-Je-t9g"/>
                                                 </connections>
@@ -294,7 +294,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="r6Y-f2-xsA" firstAttribute="leading" secondItem="Tr9-eo-QfV" secondAttribute="leading" constant="30" id="Ste-qz-P9w"/>
-                                    <constraint firstAttribute="bottom" secondItem="r6Y-f2-xsA" secondAttribute="bottom" constant="40" id="gPX-GM-wcv"/>
+                                    <constraint firstAttribute="bottom" secondItem="r6Y-f2-xsA" secondAttribute="bottom" constant="130" id="gPX-GM-wcv"/>
                                     <constraint firstAttribute="trailing" secondItem="r6Y-f2-xsA" secondAttribute="trailing" constant="30" id="tGg-pn-8TL"/>
                                 </constraints>
                             </view>
@@ -451,23 +451,27 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kha-1E-XDB">
                                                 <rect key="frame" x="0.0" y="0.0" width="32" height="34"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JL8-ln-3LF">
                                                 <rect key="frame" x="56" y="0.0" width="32" height="34"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y9X-C0-NAj">
                                                 <rect key="frame" x="112" y="0.0" width="32" height="34"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUF-5V-Yl3">
                                                 <rect key="frame" x="168" y="0.0" width="32" height="34"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -535,7 +539,7 @@
         <!--Perfil-->
         <scene sceneID="IB9-OQ-g7p">
             <objects>
-                <viewController id="A3y-g1-O4l" customClass="ProfileViewController" customModule="SecureBot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="A3y-g1-O4l" customClass="PerfilViewController" customModule="SecureBot" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CQJ-KI-FXH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -562,9 +566,6 @@
                                                         <rect key="frame" x="46.5" y="0.0" width="347.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <action selector="usuarioNombreTF" destination="9lp-NF-YEy" eventType="editingDidEnd" id="t7t-2S-2ho"/>
-                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -594,13 +595,14 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xst-SO-oMJ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abt-LR-kHj">
                                                 <rect key="frame" x="0.0" y="376" width="394" height="34.5"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.24431335034013604" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="gray" image="pencil" catalog="system" title="  Contraseña"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system" title="      Contraseña"/>
                                                 <connections>
-                                                    <action selector="jjjj:" destination="9lp-NF-YEy" eventType="touchUpInside" id="cei-LI-9Wu"/>
+                                                    <action selector="changed:" destination="A3y-g1-O4l" eventType="touchUpInside" id="wSQ-9T-AcL"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -641,18 +643,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="brain.head.profile" catalog="system" id="i7p-dO-aCz"/>
-                    <connections>
-                        <outlet property="emailTF" destination="aQe-G1-KeC" id="GM3-UR-V6f"/>
-                        <outlet property="empresaTF" destination="OpH-lE-4kg" id="c06-Y3-NqG"/>
-                        <outlet property="nombreUsuarioTF" destination="WxY-VL-3Q8" id="avc-Ot-JdX"/>
-                        <outlet property="telefonoTF" destination="T8A-b3-Rcn" id="Y7G-jK-cN5"/>
-                        <outlet property="usuarioTituloLB" destination="pMq-ZR-Cf2" id="m11-YL-1ar"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtY-Jb-IFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="9lp-NF-YEy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3247" y="202"/>
+            <point key="canvasLocation" x="3261" y="240"/>
         </scene>
         <!--Carritos-->
         <scene sceneID="UUd-cP-KFb">
@@ -699,6 +693,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dce-L7-kG4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3262" y="-461"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="YeR-gO-RIy">
+            <objects>
+                <viewController id="zca-dx-qnp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fbQ-Qd-SoX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ljc-SC-hR8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OBU-fO-FBl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3959" y="-461"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KMo-h2-Vaf">

@@ -9,19 +9,48 @@ import UIKit
 
 class PerfilViewController: UIViewController {
 
-    override func viewDidLoad() {
+    
+    
+    @IBOutlet weak var password: UIButton!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
     }
     
 
  
+    
+    
    
-    @IBAction func jjjj(_ sender: Any)
+    @IBAction func changed(_ sender: UIButton)
     {
-        print("hola")
+        let alerta = UIAlertController(title: "Cambiar Password", message: "Escribe tu contraseña:", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Cambiar", style: .default, handler: nil)
+        alerta.addTextField { textField in
+                textField.placeholder = "Ingresa tu contraseña"
+           
+        }
+        
+
+        alerta.addTextField { textField in
+                textField.placeholder = "Ingresa tu nueva contraseña"
+          
+        }
+        alerta.addTextField { textField in
+                textField.placeholder = "Rescribe la contraseña"
+          
+        }
+      
+        self.present(alerta, animated: true, completion: nil)
     }
     
+   
+    
+   
+    
+   
 
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextFieldDelegate {
     
     
     
@@ -29,10 +29,29 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var btnCrearCuenta: UIButton!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
+        
+        emailTF.delegate = self
+        passwordTF.delegate = self
         super.viewDidLoad()
-       
-       
+
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTF
+        {
+            passwordTF.becomeFirstResponder()
+        }
+        else if textField == passwordTF
+        {
+            passwordTF.resignFirstResponder()
+        }
+        return true
     }
  
     func limpiarForm()
@@ -44,20 +63,7 @@ class ViewController: UIViewController {
         emailError.text = "Requerido"
         passwordError.text = "Requerido"
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        if textField == emailTF
-        {
-            emailTF.becomeFirstResponder()
-        }else
-        {
-            emailTF.resignFirstResponder()
-        }
-        
-        
-        return true
-    }
+
     
    //CORREO
     @IBAction func emailChanged(_ sender: Any)
@@ -230,8 +236,7 @@ class ViewController: UIViewController {
     }
     
     
-   
-    
+
   
    
    

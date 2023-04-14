@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController
+class RegisterViewController: UIViewController, UITextFieldDelegate
 {
 
     //inputs
@@ -43,6 +43,12 @@ class RegisterViewController: UIViewController
     
     override func viewDidLoad()
     {
+        nombreTF.delegate = self
+        apTF.delegate = self
+        amTF.delegate = self
+        telefonoTF.delegate = self
+        emailTF.delegate = self
+        passwordTF.delegate = self
         super.viewDidLoad()
         
         
@@ -332,4 +338,69 @@ class RegisterViewController: UIViewController
 
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nombreTF
+        {
+            apTF.becomeFirstResponder()
+        }
+        else if textField == apTF
+        {
+            apTF.resignFirstResponder()
+        }
+        
+        if textField == apTF
+        {
+            amTF.becomeFirstResponder()
+        }
+        else if textField == amTF
+        {
+            amTF.resignFirstResponder()
+        }
+        
+        if textField == amTF
+        {
+            telefonoTF.becomeFirstResponder()
+        }
+        else if textField == telefonoTF
+        {
+            telefonoTF.resignFirstResponder()
+        }
+        
+        if textField == telefonoTF
+        {
+            emailTF.becomeFirstResponder()
+        }
+        else if textField == emailTF
+        {
+            emailTF.resignFirstResponder()
+        }
+       
+        if textField == emailTF
+        {
+            passwordTF.becomeFirstResponder()
+        }
+        else if textField == passwordTF
+        {
+            passwordTF.becomeFirstResponder()
+        }
+        
+        if textField == passwordTF
+        {
+            confirmpasswordTF.becomeFirstResponder()
+        }
+        else if textField == confirmpasswordTF
+        {
+            confirmpasswordTF.becomeFirstResponder()
+        }
+        
+      
+        
+        
+        return true
+    }
+ 
 }
