@@ -133,11 +133,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         {
             return "Debe tener al menos una minuscula"
         }
-        
-        if containsUpperCase(value)
-        {
-            return "Debe tener al menos una mayuscula"
-        }
+     
                 
                 return nil
     }
@@ -177,6 +173,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
     func postApi()
     {
 
+       
+    }
+    //Boton login
+    @IBAction func loginAction(_ sender: Any)
+    {
         let url = URL(string: "https://securebot.ninja/api/v1/login")!
         
         guard url != nil else
@@ -227,11 +228,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
           }
           
           task.resume()
-        
-    }
-    //Boton login
-    @IBAction func loginAction(_ sender: Any)
-    {
         
     }
     
