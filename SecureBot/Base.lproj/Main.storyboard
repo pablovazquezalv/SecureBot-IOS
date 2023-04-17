@@ -174,7 +174,7 @@
                                 <rect key="frame" x="20" y="235" width="353" height="583"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="r6Y-f2-xsA">
-                                        <rect key="frame" x="30" y="-267.66666666666663" width="314" height="857.66666666666663"/>
+                                        <rect key="frame" x="30" y="-217.66666666666666" width="314" height="807.66666666666663"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear cuenta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTU-Sd-Kop">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="25.333333333333332"/>
@@ -183,15 +183,15 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tbd-Wu-viR">
-                                                <rect key="frame" x="0.0" y="39.333333333333314" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="39.333333333333329" width="314" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                                                 <connections>
                                                     <action selector="nameChanged:" destination="omD-TC-jCa" eventType="editingChanged" id="ZTs-c7-xqV"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNi-d4-tX9">
-                                                <rect key="frame" x="0.0" y="87.333333333333329" width="314" height="49.999999999999986"/>
+                                                <rect key="frame" x="0.0" y="87.333333333333314" width="314" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
@@ -199,7 +199,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido paterno" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QJr-EL-Ygi">
                                                 <rect key="frame" x="0.0" y="151.33333333333331" width="314" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                                                 <connections>
                                                     <action selector="apChanged:" destination="omD-TC-jCa" eventType="editingChanged" id="bVp-GB-gQs"/>
                                                 </connections>
@@ -213,7 +213,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido materno" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kif-Fd-qgG">
                                                 <rect key="frame" x="0.0" y="263.33333333333331" width="314" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                                                 <connections>
                                                     <action selector="amChanged:" destination="omD-TC-jCa" eventType="editingChanged" id="evP-yH-v8r"/>
                                                 </connections>
@@ -227,13 +227,13 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefono" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vZh-Mv-ZCM">
                                                 <rect key="frame" x="0.0" y="375.33333333333331" width="314" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                 <connections>
                                                     <action selector="telChanged:" destination="omD-TC-jCa" eventType="editingChanged" id="uVp-Je-t9g"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUb-XF-aBm">
-                                                <rect key="frame" x="0.0" y="423.33333333333331" width="314" height="50"/>
+                                                <rect key="frame" x="0.0" y="423.33333333333337" width="314" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
@@ -241,7 +241,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electronico" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wdE-DA-E7d">
                                                 <rect key="frame" x="0.0" y="487.33333333333337" width="314" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <action selector="emailChanged:" destination="omD-TC-jCa" eventType="editingChanged" id="hvy-eR-u1X"/>
                                                 </connections>
@@ -260,28 +260,28 @@
                                                     <action selector="paswordChanged:" destination="omD-TC-jCa" eventType="editingChanged" id="Gkg-V3-IPQ"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jg8-rX-C0p">
-                                                <rect key="frame" x="0.0" y="647.33333333333337" width="314" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jg8-rX-C0p">
+                                                <rect key="frame" x="0.0" y="647.33333333333337" width="314" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmar contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qCy-Jv-GFy">
-                                                <rect key="frame" x="0.0" y="711.33333333333337" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="661.33333333333337" width="314" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <connections>
                                                     <action selector="confirmPassword:" destination="omD-TC-jCa" eventType="editingChanged" id="tZs-DC-0Tz"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5C-t4-MgK">
-                                                <rect key="frame" x="0.0" y="759.33333333333326" width="314" height="50"/>
+                                                <rect key="frame" x="0.0" y="709.33333333333326" width="314" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ftg-Ot-Y4P">
-                                                <rect key="frame" x="0.0" y="823.33333333333326" width="314" height="34.333333333333371"/>
+                                                <rect key="frame" x="0.0" y="773.33333333333326" width="314" height="34.333333333333371"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.96029317010000004" green="0.96029317010000004" blue="0.96029317010000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>

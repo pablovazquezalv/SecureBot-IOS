@@ -11,6 +11,7 @@
 		8836D7A729E8931000668B39 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836D7A629E8931000668B39 /* PerfilViewController.swift */; };
 		883A893F29E721B2005C6A1D /* icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 883A893E29E721B2005C6A1D /* icon.svg */; };
 		883FF76429E74B3200F9B608 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883FF76329E74B3200F9B608 /* SplashViewController.swift */; };
+		88530D4529EDB383006D1061 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88530D4429EDB383006D1061 /* UserData.swift */; };
 		88AFCB3229E76E2A004260F3 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AFCB3129E76E2A004260F3 /* logo.png */; };
 		88BDDBC129E717DB00BDF086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBC029E717DB00BDF086 /* AppDelegate.swift */; };
 		88BDDBC329E717DB00BDF086 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBC229E717DB00BDF086 /* SceneDelegate.swift */; };
@@ -50,6 +51,7 @@
 		8836D7A629E8931000668B39 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		883A893E29E721B2005C6A1D /* icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon.svg; sourceTree = "<group>"; };
 		883FF76329E74B3200F9B608 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		88530D4429EDB383006D1061 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		88AFCB3129E76E2A004260F3 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		88BDDBBD29E717DB00BDF086 /* SecureBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BDDBC029E717DB00BDF086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				88BDDBC029E717DB00BDF086 /* AppDelegate.swift */,
 				88BDDBC229E717DB00BDF086 /* SceneDelegate.swift */,
 				88BDDBC429E717DB00BDF086 /* ViewController.swift */,
+				88530D4429EDB383006D1061 /* UserData.swift */,
 				883FF76329E74B3200F9B608 /* SplashViewController.swift */,
 				88EFC59929E76300008FB20B /* RegisterViewController.swift */,
 				88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */,
@@ -308,6 +311,7 @@
 				8821932D29E8894D00841026 /* InstruccionesViewController.swift in Sources */,
 				88EFC59E29E76706008FB20B /* ProfileViewController.swift in Sources */,
 				88BDDBC329E717DB00BDF086 /* SceneDelegate.swift in Sources */,
+				88530D4529EDB383006D1061 /* UserData.swift in Sources */,
 				883FF76429E74B3200F9B608 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
