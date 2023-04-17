@@ -43,6 +43,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
     
     override func viewDidLoad()
     {
+        print("hola")
+        postApi()
         nombreTF.delegate = self
         apTF.delegate = self
         amTF.delegate = self
@@ -52,7 +54,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         btnRegister.layer.cornerRadius = 7.0
 
         super.viewDidLoad()
-        
+
         
     }
     
@@ -405,4 +407,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         return true
     }
  
+    
+    func checkForm()
+    {
+        
+        if emailError.isHidden && passwordError.isHidden
+        {
+        btnRegister.isEnabled = true
+        }
+        else
+        {
+            btnRegister.isEnabled = false
+        }
+    }
 }

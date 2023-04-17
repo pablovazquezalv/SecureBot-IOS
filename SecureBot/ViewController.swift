@@ -31,6 +31,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad()
     {
+       
         btnLogin.layer.cornerRadius = 7.0
         emailTF.delegate = self
         passwordTF.delegate = self
@@ -38,7 +39,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
 
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
         self.view.endEditing(true)
     }
     
