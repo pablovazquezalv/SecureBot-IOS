@@ -97,15 +97,16 @@
                                                 <buttonConfiguration key="configuration" style="tinted" title="Login"/>
                                                 <connections>
                                                     <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tRm-BC-Qa6"/>
+                                                    <segue destination="Wup-lj-Tsq" kind="presentation" identifier="sgLogin" modalPresentationStyle="fullScreen" id="hKf-B1-p8f"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgx-kM-CF9">
-                                        <rect key="frame" x="86" y="510.00000000000006" width="202" height="29.666666666666686"/>
+                                        <rect key="frame" x="86" y="510" width="202" height="45"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="¿No tienes cuenta? crea una">
+                                        <buttonConfiguration key="configuration" style="plain" title="¿No tienes cuenta? Crea una" titleAlignment="center">
                                             <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -185,7 +186,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tbd-Wu-viR">
                                                 <rect key="frame" x="0.0" y="39.333333333333329" width="314" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                                                <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="nameChanged:" destination="omD-TC-jCa" eventType="editingChanged" id="ZTs-c7-xqV"/>
                                                 </connections>
@@ -199,7 +200,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido paterno" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QJr-EL-Ygi">
                                                 <rect key="frame" x="0.0" y="151.33333333333331" width="314" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                                                <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="apChanged:" destination="omD-TC-jCa" eventType="editingChanged" id="bVp-GB-gQs"/>
                                                 </connections>
@@ -213,7 +214,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido materno" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kif-Fd-qgG">
                                                 <rect key="frame" x="0.0" y="263.33333333333331" width="314" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                                                <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="amChanged:" destination="omD-TC-jCa" eventType="editingChanged" id="evP-yH-v8r"/>
                                                 </connections>
@@ -288,7 +289,7 @@
                                                 <buttonConfiguration key="configuration" style="gray" title="Crear cuenta"/>
                                                 <connections>
                                                     <action selector="submitRegister:" destination="omD-TC-jCa" eventType="touchUpInside" id="Oah-mD-s7P"/>
-                                                    <segue destination="jPz-Gi-M9K" kind="presentation" id="1Ak-d0-y1s"/>
+                                                    <segue destination="jPz-Gi-M9K" kind="presentation" identifier="sgRegister" id="1Ak-d0-y1s"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -748,6 +749,9 @@
             <point key="canvasLocation" x="2482" y="-100"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hKf-B1-p8f"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1681318669742.png" width="3240" height="4860"/>
         <image name="brain.head.profile" catalog="system" width="120" height="128"/>

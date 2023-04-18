@@ -28,6 +28,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var btnRegister: UIButton!
     var maxLenghts = [UITextField: Int]()
+    let userData = UserData.sharedData()
+    var hasErrors = true
     
     override func viewDidLoad() {
         nombreTF.delegate = self
@@ -155,7 +157,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 checkForm()
             }
         }
-     
     }
     
     func invalidName(_ value: String)-> String? {
@@ -280,77 +281,98 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func submitRegister(_ sender: Any)
-    {
-        postApi()
+    @IBAction func submitRegister(_ sender: Any) {
+        register()
     }
     
-    func postApi()
-    {
-
+    func register() {
         let url = URL(string: "https://securebot.ninja/api/v1/register")!
-        
-        guard url != nil else
-        {
-            print("error")
-            return
-        }
-
-        var request = URLRequest(url: url,cachePolicy: .useProtocolCachePolicy,timeoutInterval: 10)
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         request.httpMethod = "POST"
         
-        let nombre = nombreTF.text ?? ""
-           let apellidoPaterno = apTF.text ?? ""
-           let apellidoMaterno = amTF.text ?? ""
-           let telefono = telefonoTF.text ?? ""
-           let email = emailTF.text ?? ""
-           let password = passwordTF.text ?? ""
+        let nombre = nombreTF.text!
+        let apellidoPaterno = apTF.text!
+        let apellidoMaterno = amTF.text!
+        let telefono = telefonoTF.text!
+        let email = emailTF.text!
+        let password = passwordTF.text!
           
-
-           let requestBody: [String: Any] = [
-               "name": nombre,
-               "ap_paterno": apellidoPaterno,
-               "ap_materno": apellidoMaterno,
-               "phone_number": telefono,
-               "email": email,
-               "password": password
-           ]
+       let requestBody: [String: Any] = [
+           "name": nombre,
+           "ap_paterno": apellidoPaterno,
+           "ap_materno": apellidoMaterno,
+           "phone_number": telefono,
+           "email": email,
+           "password": password
+       ]
         
         do {
-              let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
-              request.httpBody = jsonData
-              request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-          } catch {
-              print("Error converting request body to JSON data: \(error)")
-              return
-          }
+            let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+            request.httpBody = jsonData
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        } catch {
+            print("Error al convertir el cuerpo del request a JSON: \(error)")
+            return
+        }
           
-          let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-              if let error = error {
-                  print("Error posting request: \(error)")
-                  return
-              }
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error en el request: \(error)")
+                  
+                return
+            }
               
-              guard let data = data else {
-                  print("No data received in response")
-                  return
-              }
-              
-              do {
-                  let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
-                  print("Response: \(responseJSON)")
-              } catch {
-                  print("Error parsing response JSON: \(error)")
-              }
-          }
-          
-          task.resume()
+            guard let data = data else {
+                print("No se recibió data en la respuesta")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 201 {
+                do {
+                    let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                    print("Respuesta: \(responseJSON)")
+                    
+                    DispatchQueue.main.async {
+                        self.hasErrors = false
+                        
+                        self.userData.name = nombre
+                        self.userData.ap_paterno = apellidoPaterno
+                        self.userData.ap_materno = apellidoMaterno
+                        self.userData.phone_number = telefono
+                        self.userData.email = email
+                    }
+                    
+                } catch {
+                    print("Error al convertir la respuesta a JSON: \(error)")
+                }
+            } else {
+                DispatchQueue.main.async {
+                    let error = UIAlertController(title: "Error", message: "El correo electrónico ya está en uso", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "Aceptar", style: .default)
+                    error.addAction(ok)
+                    self.present(error, animated: true)
+                }
+            }
+        }
         
+        task.resume()
     }
     
     @IBAction func regresar() {
         self.dismiss(animated: true)
 
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "sgRegister" {
+            if !hasErrors {
+                return true
+            }
+            
+            return false
+        }
+            
+        return false
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

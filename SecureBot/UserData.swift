@@ -15,6 +15,7 @@ class UserData: NSObject {
     var email: String
     var phone_number: String
     var rol_id: Int
+    var token: String
     static var userData: UserData!
     
     override init() {
@@ -25,6 +26,7 @@ class UserData: NSObject {
         email = ""
         phone_number = ""
         rol_id = 4
+        token = ""
     }
     
     static func sharedData()->UserData {
