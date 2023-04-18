@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A3y-g1-O4l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wup-lj-Tsq">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -690,10 +690,13 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBv-6S-SxJ">
-                                        <rect key="frame" x="178" y="490" width="58" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBv-6S-SxJ">
+                                        <rect key="frame" x="139" y="477" width="137" height="39"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="137" id="r9U-KP-K8P"/>
+                                            <constraint firstAttribute="height" constant="39" id="yKo-Or-BtP"/>
+                                        </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Salir"/>
@@ -704,6 +707,9 @@
                                     <constraint firstItem="w8w-XL-g9k" firstAttribute="leading" secondItem="QMF-eA-WRZ" secondAttribute="leading" constant="10" id="BF0-My-Hbn"/>
                                     <constraint firstItem="w8w-XL-g9k" firstAttribute="top" secondItem="QMF-eA-WRZ" secondAttribute="top" constant="19" id="KvD-9d-hW1"/>
                                     <constraint firstAttribute="trailing" secondItem="w8w-XL-g9k" secondAttribute="trailing" constant="10" id="T92-HN-jDt"/>
+                                    <constraint firstAttribute="trailing" secondItem="TBv-6S-SxJ" secondAttribute="trailing" constant="138" id="Zlq-AW-ACX"/>
+                                    <constraint firstItem="TBv-6S-SxJ" firstAttribute="top" secondItem="w8w-XL-g9k" secondAttribute="bottom" constant="46.666666666666686" id="aPi-It-Ac8"/>
+                                    <constraint firstItem="TBv-6S-SxJ" firstAttribute="leading" secondItem="QMF-eA-WRZ" secondAttribute="leading" constant="139" id="rfO-57-2BJ"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pablo Vazquez Alvarado" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pMq-ZR-Cf2">
@@ -733,7 +739,7 @@
                             <constraint firstItem="QMF-eA-WRZ" firstAttribute="top" secondItem="Nxg-n0-nSz" secondAttribute="top" constant="56" id="tzg-qc-a8j"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Perfil" image="brain.head.profile" catalog="system" id="i7p-dO-aCz"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="usuario.png" id="i7p-dO-aCz"/>
                     <connections>
                         <outlet property="btncambiarCorreo" destination="xG7-87-VI6" id="NYc-d9-3cJ"/>
                         <outlet property="btncambiarNombre" destination="RLR-lV-qYx" id="ULB-Zo-szd"/>
@@ -744,7 +750,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtY-Jb-IFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2416" y="147"/>
+            <point key="canvasLocation" x="2415.9420289855075" y="146.65178571428569"/>
         </scene>
         <!--Carritos-->
         <scene sceneID="UUd-cP-KFb">
@@ -833,7 +839,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1681318669742.png" width="3240" height="4860"/>
-        <image name="brain.head.profile" catalog="system" width="120" height="128"/>
         <image name="car" catalog="system" width="128" height="95"/>
         <image name="checkcheck.png" width="225" height="225"/>
         <image name="descarga.png" width="218" height="231"/>
@@ -841,6 +846,7 @@
         <image name="logoforiphone.png" width="255" height="243"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="return" catalog="system" width="128" height="102"/>
+        <image name="usuario.png" width="24" height="24"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

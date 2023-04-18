@@ -10,6 +10,7 @@
 		8821932D29E8894D00841026 /* InstruccionesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8821932C29E8894D00841026 /* InstruccionesViewController.swift */; };
 		8836D7A729E8931000668B39 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836D7A629E8931000668B39 /* PerfilViewController.swift */; };
 		883A893F29E721B2005C6A1D /* icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 883A893E29E721B2005C6A1D /* icon.svg */; };
+		883D5BF629EF3123006970E5 /* usuario.png in Resources */ = {isa = PBXBuildFile; fileRef = 883D5BF529EF3123006970E5 /* usuario.png */; };
 		883FF76429E74B3200F9B608 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883FF76329E74B3200F9B608 /* SplashViewController.swift */; };
 		88530D4529EDB383006D1061 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88530D4429EDB383006D1061 /* UserData.swift */; };
 		88AFCB3229E76E2A004260F3 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AFCB3129E76E2A004260F3 /* logo.png */; };
@@ -27,7 +28,6 @@
 		88CFA8CD29EEFD04006D5A3D /* checkcheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CFA8CC29EEFD04006D5A3D /* checkcheck.png */; };
 		88EFC59A29E76300008FB20B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59929E76300008FB20B /* RegisterViewController.swift */; };
 		88EFC59C29E7661A008FB20B /* TelefonoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */; };
-		88EFC59E29E76706008FB20B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59D29E76706008FB20B /* ProfileViewController.swift */; };
 		88EFC5A229E76C05008FB20B /* logoforiphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EFC5A129E76C05008FB20B /* logoforiphone.png */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +52,7 @@
 		8821932C29E8894D00841026 /* InstruccionesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstruccionesViewController.swift; sourceTree = "<group>"; };
 		8836D7A629E8931000668B39 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		883A893E29E721B2005C6A1D /* icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon.svg; sourceTree = "<group>"; };
+		883D5BF529EF3123006970E5 /* usuario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = usuario.png; path = ../../../imgs/usuario.png; sourceTree = "<group>"; };
 		883FF76329E74B3200F9B608 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		88530D4429EDB383006D1061 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		88AFCB3129E76E2A004260F3 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		88CFA8CC29EEFD04006D5A3D /* checkcheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkcheck.png; sourceTree = "<group>"; };
 		88EFC59929E76300008FB20B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelefonoViewController.swift; sourceTree = "<group>"; };
-		88EFC59D29E76706008FB20B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		88EFC5A129E76C05008FB20B /* logoforiphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoforiphone.png; path = PABLOVAZQUEZALVARADO/imgs/logoforiphone.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +133,6 @@
 				88EFC59929E76300008FB20B /* RegisterViewController.swift */,
 				88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */,
 				8821932C29E8894D00841026 /* InstruccionesViewController.swift */,
-				88EFC59D29E76706008FB20B /* ProfileViewController.swift */,
 				8836D7A629E8931000668B39 /* PerfilViewController.swift */,
 				88BDDBC629E717DB00BDF086 /* Main.storyboard */,
 				88BDDBC929E717DD00BDF086 /* Assets.xcassets */,
@@ -164,6 +163,7 @@
 		88BDDBF029E71AA600BDF086 /* imgs */ = {
 			isa = PBXGroup;
 			children = (
+				883D5BF529EF3123006970E5 /* usuario.png */,
 				88CFA8CC29EEFD04006D5A3D /* checkcheck.png */,
 				88CFA8CA29EEEC87006D5A3D /* descarga.png */,
 				88AFCB3129E76E2A004260F3 /* logo.png */,
@@ -278,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883D5BF629EF3123006970E5 /* usuario.png in Resources */,
 				88BDDBCD29E717DD00BDF086 /* LaunchScreen.storyboard in Resources */,
 				88CFA8CB29EEEC87006D5A3D /* descarga.png in Resources */,
 				88BDDBCA29E717DD00BDF086 /* Assets.xcassets in Resources */,
@@ -317,7 +318,6 @@
 				8836D7A729E8931000668B39 /* PerfilViewController.swift in Sources */,
 				88BDDBC129E717DB00BDF086 /* AppDelegate.swift in Sources */,
 				8821932D29E8894D00841026 /* InstruccionesViewController.swift in Sources */,
-				88EFC59E29E76706008FB20B /* ProfileViewController.swift in Sources */,
 				88BDDBC329E717DB00BDF086 /* SceneDelegate.swift in Sources */,
 				88530D4529EDB383006D1061 /* UserData.swift in Sources */,
 				883FF76429E74B3200F9B608 /* SplashViewController.swift in Sources */,

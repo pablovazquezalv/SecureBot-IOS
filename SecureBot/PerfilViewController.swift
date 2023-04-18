@@ -21,7 +21,7 @@ class PerfilViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+       
         diseño()
     }
     
