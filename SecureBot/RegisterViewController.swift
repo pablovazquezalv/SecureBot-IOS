@@ -430,8 +430,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     func checkForm() {
         if nombreError.isHidden && apError.isHidden && amError.isHidden && telError.isHidden && emailError.isHidden && passwordError.isHidden && confirmPasswordError.isHidden {
             btnRegister.isEnabled = true
+        
         } else {
             btnRegister.isEnabled = false
+            
+
         }
     }
 }

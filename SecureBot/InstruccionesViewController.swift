@@ -17,7 +17,7 @@ class InstruccionesViewController: UIViewController {
     
     override func viewDidLoad()
     {
-        quierohacerlobtn.layer.cornerRadius = 7.0
+       quierohacerlobtn.layer.cornerRadius = 7.0
 
         super.viewDidLoad()
 

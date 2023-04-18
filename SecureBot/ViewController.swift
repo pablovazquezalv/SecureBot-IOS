@@ -16,19 +16,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordError: UILabel!
 
     @IBOutlet weak var btnLogin: UIButton!
-    @IBOutlet weak var btnCrearCuenta: UIButton!
-    
+
     var maxLenghts = [UITextField: Int]()
     let userData = UserData.sharedData()
     var hasErrors = true
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         btnLogin.layer.cornerRadius = 7.0
         emailTF.delegate = self
         passwordTF.delegate = self
         emailError.font = UIFont.systemFont(ofSize: 11)
         passwordError.font = UIFont.systemFont(ofSize: 11)
         btnLogin.isEnabled = false
+ 
+
         maxLenghts[passwordTF] = 20
         
         super.viewDidLoad()
@@ -174,7 +176,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return false
         }
             
-        return false
+        return true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -199,12 +201,47 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return newString.length <= maxLenght
     }
 
-    func checkForm() {
+    func checkForm()
+    {
         if emailError.isHidden && passwordError.isHidden {
             btnLogin.isEnabled = true
+        
         } else {
             btnLogin.isEnabled = false
+         
+
         }
     }
+    
+    
+    @IBAction func checked(_ sender: UIButton)
+    {
+        if sender.isSelected
+        {
+            sender.isSelected = false
+        }
+        else
+        {
+            sender.isSelected = true
+        }
+    }
+    
+    
+    @IBAction func olvideMiContraseña(_ sender: UIButton)
+    {
+        let alerta = UIAlertController(title: "Recuperar contraseña", message: "Escribe tu correo:", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Cambiar", style: .destructive, handler: nil)
+        
+        
+
+        alerta.addTextField { textField in
+                textField.placeholder = "Ingresa tu correo electronico"
+          
+        }
+        
+        alerta.addAction(ok)
+        self.present(alerta, animated: true, completion: nil)
+    }
+    
 }
 

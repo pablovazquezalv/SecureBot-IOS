@@ -23,6 +23,8 @@
 		88BDDBE229E717DD00BDF086 /* SecureBotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBE129E717DD00BDF086 /* SecureBotUITests.swift */; };
 		88BDDBE429E717DD00BDF086 /* SecureBotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBE329E717DD00BDF086 /* SecureBotUITestsLaunchTests.swift */; };
 		88BDDBF229E71AED00BDF086 /* 1681318669742.png in Resources */ = {isa = PBXBuildFile; fileRef = 88BDDBF129E71AED00BDF086 /* 1681318669742.png */; };
+		88CFA8CB29EEEC87006D5A3D /* descarga.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CFA8CA29EEEC87006D5A3D /* descarga.png */; };
+		88CFA8CD29EEFD04006D5A3D /* checkcheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CFA8CC29EEFD04006D5A3D /* checkcheck.png */; };
 		88EFC59A29E76300008FB20B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59929E76300008FB20B /* RegisterViewController.swift */; };
 		88EFC59C29E7661A008FB20B /* TelefonoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */; };
 		88EFC59E29E76706008FB20B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFC59D29E76706008FB20B /* ProfileViewController.swift */; };
@@ -67,6 +69,8 @@
 		88BDDBE129E717DD00BDF086 /* SecureBotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureBotUITests.swift; sourceTree = "<group>"; };
 		88BDDBE329E717DD00BDF086 /* SecureBotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureBotUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		88BDDBF129E71AED00BDF086 /* 1681318669742.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1681318669742.png; sourceTree = "<group>"; };
+		88CFA8CA29EEEC87006D5A3D /* descarga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descarga.png; sourceTree = "<group>"; };
+		88CFA8CC29EEFD04006D5A3D /* checkcheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkcheck.png; sourceTree = "<group>"; };
 		88EFC59929E76300008FB20B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelefonoViewController.swift; sourceTree = "<group>"; };
 		88EFC59D29E76706008FB20B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 		88BDDBF029E71AA600BDF086 /* imgs */ = {
 			isa = PBXGroup;
 			children = (
+				88CFA8CC29EEFD04006D5A3D /* checkcheck.png */,
+				88CFA8CA29EEEC87006D5A3D /* descarga.png */,
 				88AFCB3129E76E2A004260F3 /* logo.png */,
 				88EFC5A129E76C05008FB20B /* logoforiphone.png */,
 				883A893E29E721B2005C6A1D /* icon.svg */,
@@ -273,10 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				88BDDBCD29E717DD00BDF086 /* LaunchScreen.storyboard in Resources */,
+				88CFA8CB29EEEC87006D5A3D /* descarga.png in Resources */,
 				88BDDBCA29E717DD00BDF086 /* Assets.xcassets in Resources */,
 				883A893F29E721B2005C6A1D /* icon.svg in Resources */,
 				88EFC5A229E76C05008FB20B /* logoforiphone.png in Resources */,
 				88AFCB3229E76E2A004260F3 /* logo.png in Resources */,
+				88CFA8CD29EEFD04006D5A3D /* checkcheck.png in Resources */,
 				88BDDBF229E71AED00BDF086 /* 1681318669742.png in Resources */,
 				88BDDBC829E717DB00BDF086 /* Main.storyboard in Resources */,
 			);
