@@ -21,8 +21,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let userData = UserData.sharedData()
     var hasErrors = true
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         btnLogin.layer.cornerRadius = 7.0
         emailTF.delegate = self
         passwordTF.delegate = self
@@ -30,7 +29,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         passwordError.font = UIFont.systemFont(ofSize: 11)
         btnLogin.isEnabled = false
  
-
         maxLenghts[passwordTF] = 20
         
         super.viewDidLoad()
@@ -139,6 +137,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         DispatchQueue.main.async {
                             self.hasErrors = false
                             self.userData.token = token
+                            self.performSegue(withIdentifier: "sgLogin", sender: self)
                         }
                     }
                 } catch {
@@ -201,47 +200,124 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return newString.length <= maxLenght
     }
 
-    func checkForm()
-    {
+    func checkForm() {
         if emailError.isHidden && passwordError.isHidden {
             btnLogin.isEnabled = true
-        
         } else {
             btnLogin.isEnabled = false
-         
-
         }
     }
     
-    
-    @IBAction func checked(_ sender: UIButton)
-    {
-        if sender.isSelected
-        {
+    @IBAction func checked(_ sender: UIButton) {
+        if sender.isSelected {
             sender.isSelected = false
-        }
-        else
-        {
+            userData.rememberMe = false
+        } else {
             sender.isSelected = true
+            userData.rememberMe = true
         }
     }
     
-    
-    @IBAction func olvideMiContraseña(_ sender: UIButton)
-    {
+    @IBAction func olvideMiContraseña(_ sender: UIButton) {
         let alerta = UIAlertController(title: "Recuperar contraseña", message: "Escribe tu correo:", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Cambiar", style: .destructive, handler: nil)
+        let ok = UIAlertAction(title: "Recuperar", style: .destructive) { [ weak self ] _ in
+            guard let self = self else { return }
+            if let correo = alerta.textFields?.first?.text {
+                changePassword(email: correo)
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel)
         
-        
-
         alerta.addTextField { textField in
-                textField.placeholder = "Ingresa tu correo electronico"
-          
+            textField.placeholder = "Ingresa tu correo electronico"
         }
         
         alerta.addAction(ok)
+        alerta.addAction(cancel)
         self.present(alerta, animated: true, completion: nil)
     }
     
+    func changePassword(email: String = "") {
+        let url = URL(string: "https://securebot.ninja/api/v1/recover/password")!
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        request.httpMethod = "POST"
+        
+        if email == "" {
+            let error = UIAlertController(title: "Error", message: "No has proporcionado ningún correo electrónico", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Aceptar", style: .default)
+            error.addAction(ok)
+            self.present(error, animated: true)
+        }
+        
+        let correo = email
+          
+        let requestBody: [String: Any] = [
+            "email": correo,
+        ]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+            request.httpBody = jsonData
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        } catch {
+            print("Error al convertir el cuerpo del request a JSON: \(error)")
+            return
+        }
+          
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error en el request: \(error)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No se recibió data en la respuesta")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                do {
+                    let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                    print("Respuesta: \(responseJSON)")
+                    
+                    DispatchQueue.main.async {
+                        self.hasErrors = false
+                        let alerta = UIAlertController(title: "Correo enviado", message: "Un correo electrónico con una contraseña provisional ha sido enviado al correo que proporcionaste. No olvides cambiarla una vez inicies sesión.", preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "Aceptar", style: .default)
+                        alerta.addAction(ok)
+                        self.present(alerta, animated: true)
+                    }
+                } catch {
+                    print("Error al convertir la respuesta a JSON: \(error)")
+                }
+            } else {
+                do {
+                    let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                    print("Respuesta: \(responseJSON)")
+                    
+                    if let jsonDict = responseJSON as? [String: Any],
+                       let message = jsonDict["message"] as? String {
+                        DispatchQueue.main.async {
+                            let error = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                            let ok = UIAlertAction(title: "Aceptar", style: .default)
+                            error.addAction(ok)
+                            self.present(error, animated: true)
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            let error = UIAlertController(title: "Error", message: "Correo electrónico inválido", preferredStyle: .alert)
+                            let ok = UIAlertAction(title: "Aceptar", style: .default)
+                            error.addAction(ok)
+                            self.present(error, animated: true)
+                        }
+                    }
+                } catch {
+                    print("Error al convertir la respuesta a JSON: \(error)")
+                }
+            }
+        }
+        
+        task.resume()
+    }
 }
 

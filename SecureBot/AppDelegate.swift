@@ -52,6 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                datos.email = diccionario["email"] as! String
                datos.phone_number = diccionario["phn"] as! String
                datos.rol_id = diccionario["rol"] as! Int
+               datos.token = diccionario["tok"] as! String
+               datos.rememberMe = diccionario["rmm"] as! Bool
+               datos.signedRoute = diccionario["sgr"] as! String
            } catch {
                print("Algo salió mal")
            }

@@ -16,6 +16,7 @@ class PerfilViewController: UIViewController {
     @IBOutlet weak var salir: UIButton!
     @IBOutlet weak var btncambiarCorreo: UIButton!
     @IBOutlet weak var btncambiarTelefono: UIButton!
+    let userData = UserData.sharedData()
     
     @IBOutlet weak var btncontraseña: UIButton!
     override func viewDidLoad()

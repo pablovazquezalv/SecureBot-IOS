@@ -332,16 +332,20 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
                     print("Respuesta: \(responseJSON)")
                     
-                    DispatchQueue.main.async {
-                        self.hasErrors = false
-                        
-                        self.userData.name = nombre
-                        self.userData.ap_paterno = apellidoPaterno
-                        self.userData.ap_materno = apellidoMaterno
-                        self.userData.phone_number = telefono
-                        self.userData.email = email
+                    if let jsonDict = responseJSON as? [String: Any],
+                       let signedRoute = jsonDict["url"] as? String {
+                        DispatchQueue.main.async {
+                            self.hasErrors = false
+                            self.performSegue(withIdentifier: "sgRegister", sender: self)
+                            
+                            self.userData.name = nombre
+                            self.userData.ap_paterno = apellidoPaterno
+                            self.userData.ap_materno = apellidoMaterno
+                            self.userData.phone_number = telefono
+                            self.userData.email = email
+                            self.userData.signedRoute = signedRoute
+                        }
                     }
-                    
                 } catch {
                     print("Error al convertir la respuesta a JSON: \(error)")
                 }
@@ -360,7 +364,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func regresar() {
         self.dismiss(animated: true)
-
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -430,11 +433,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     func checkForm() {
         if nombreError.isHidden && apError.isHidden && amError.isHidden && telError.isHidden && emailError.isHidden && passwordError.isHidden && confirmPasswordError.isHidden {
             btnRegister.isEnabled = true
-        
         } else {
             btnRegister.isEnabled = false
-            
-
         }
     }
 }
