@@ -13,12 +13,6 @@ class TelefonoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var numbertresTF: UITextField!
     @IBOutlet weak var numbercuatroTF: UITextField!
     
-    
-    
-    
-    
-    
-    
     @IBOutlet weak var btnverificar: UIButton!
     var maxLenghts = [UITextField: Int]()
     let userData = UserData.sharedData()
@@ -101,13 +95,6 @@ class TelefonoViewController: UIViewController, UITextFieldDelegate {
                             error.addAction(ok)
                             self.present(error, animated: true)
                         }
-                    } else {
-                        DispatchQueue.main.async {
-                            let error = UIAlertController(title: "Error", message: "Tienes que llenar cada uno de los campos", preferredStyle: .alert)
-                            let ok = UIAlertAction(title: "Aceptar", style: .default)
-                            error.addAction(ok)
-                            self.present(error, animated: true)
-                        }
                     }
                 } catch {
                     print("Error al convertir la respuesta a JSON: \(error)")
@@ -164,30 +151,40 @@ class TelefonoViewController: UIViewController, UITextFieldDelegate {
         return newString.length <= maxLenght
     }
     
-    
-    //TFNUMERO 1
-    
-    @IBAction func numerounoChange(_ sender: Any)
-    {
-       
+    @IBAction func numerounoChange(_ sender: Any) {
+        if let numeroUno = numberunoTF.text {
+            print(numeroUno)
+           checkForm()
+        }
     }
     
-    
-    @IBAction func numerodosChange(_ sender: Any)
-    {
-        
+    @IBAction func numerodosChange(_ sender: Any) {
+        if let numeroDos = numberdosTF.text {
+            print(numeroDos)
+           checkForm()
+        }
     }
     
-    
-    
-    @IBAction func numerotresChange(_ sender: Any)
-    {
-       
+    @IBAction func numerotresChange(_ sender: Any) {
+        if let numeroTres = numbertresTF.text {
+            print(numeroTres)
+           checkForm()
+        }
     }
     
     @IBAction func numerocuatroChange(_ sender: Any) {
+        if let numeroCuatro = numbercuatroTF.text {
+            print(numeroCuatro)
+           checkForm()
+        }
     }
     
-    
+    func checkForm() {
+        if numberunoTF.text?.count == 1 && numberdosTF.text?.count == 1 && numbertresTF.text?.count == 1 && numbercuatroTF.text?.count == 1 {
+            btnverificar.isEnabled = true
+        } else {
+            btnverificar.isEnabled = false
+        }
+    }
     
 }

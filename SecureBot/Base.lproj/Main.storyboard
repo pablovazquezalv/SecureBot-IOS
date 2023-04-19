@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wup-lj-Tsq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AFs-6B-87W">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -510,7 +510,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="7ta-Pd-KV6">
-                                        <rect key="frame" x="86" y="193.66666666666669" width="200" height="34"/>
+                                        <rect key="frame" x="86" y="194" width="200" height="34"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kha-1E-XDB">
                                                 <rect key="frame" x="0.0" y="0.0" width="32" height="34"/>
@@ -551,12 +551,12 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEn-YZ-Jjc">
-                                        <rect key="frame" x="86" y="270.66666666666669" width="213" height="34.333333333333314"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEn-YZ-Jjc">
+                                        <rect key="frame" x="86" y="271" width="213" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Verificar cuenta"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Verificar cuenta"/>
                                         <connections>
                                             <action selector="verificarCuenta:" destination="Zw7-JH-45L" eventType="touchUpInside" id="TDX-3o-KfP"/>
                                             <segue destination="BYZ-38-t0r" kind="presentation" identifier="sgVerificar" id="jqq-WY-J3K"/>
@@ -643,14 +643,14 @@
                                                             <action selector="changeName:" destination="A3y-g1-O4l" eventType="touchUpInside" id="Crb-X3-Nss"/>
                                                         </connections>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pablo Vazquez Alvarado" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WxY-VL-3Q8">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WxY-VL-3Q8">
                                                         <rect key="frame" x="50" y="0.0" width="344" height="34.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Securebot" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OpH-lE-4kg">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OpH-lE-4kg">
                                                 <rect key="frame" x="0.0" y="94.333333333333343" width="394" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -665,10 +665,10 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
                                                         <connections>
-                                                            <action selector="changeEmail:" destination="A3y-g1-O4l" eventType="touchUpInside" id="swM-gT-hYW"/>
+                                                            <action selector="changeEmail:" destination="A3y-g1-O4l" eventType="touchUpInside" id="gcz-ud-fWC"/>
                                                         </connections>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="pabloalvaradovazquez10@gmail.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQe-G1-KeC">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQe-G1-KeC">
                                                         <rect key="frame" x="49" y="0.0" width="345" height="34.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -685,10 +685,13 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8717686477" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T8A-b3-Rcn">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T8A-b3-Rcn">
                                                         <rect key="frame" x="49" y="0.0" width="345" height="34.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="changeTel:" destination="A3y-g1-O4l" eventType="editingDidEnd" id="ubD-QK-flx"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -726,7 +729,7 @@
                                     <constraint firstItem="TBv-6S-SxJ" firstAttribute="leading" secondItem="QMF-eA-WRZ" secondAttribute="leading" constant="139" id="rfO-57-2BJ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pablo Vazquez Alvarado" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pMq-ZR-Cf2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pMq-ZR-Cf2">
                                 <rect key="frame" x="123" y="18" width="200" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bON-7v-w3x"/>
@@ -755,10 +758,15 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="person.fill" catalog="system" selectedImage="person.fill" id="i7p-dO-aCz"/>
                     <connections>
+                        <outlet property="TFcorreo" destination="aQe-G1-KeC" id="pdj-vd-dnj"/>
+                        <outlet property="TFempresa" destination="OpH-lE-4kg" id="I6j-zM-mOO"/>
+                        <outlet property="TFnombre" destination="WxY-VL-3Q8" id="5vN-1v-axt"/>
+                        <outlet property="TFtelefono" destination="T8A-b3-Rcn" id="zZT-9Z-OOM"/>
                         <outlet property="btncambiarCorreo" destination="xG7-87-VI6" id="NYc-d9-3cJ"/>
                         <outlet property="btncambiarNombre" destination="RLR-lV-qYx" id="ULB-Zo-szd"/>
                         <outlet property="btncambiarTelefono" destination="CdM-QZ-iNO" id="fLx-8E-IgX"/>
                         <outlet property="btncontraseña" destination="Abt-LR-kHj" id="PLp-2D-Sag"/>
+                        <outlet property="lblNombre" destination="pMq-ZR-Cf2" id="Vi4-cR-fzQ"/>
                         <outlet property="salir" destination="TBv-6S-SxJ" id="PI1-bg-PKd"/>
                     </connections>
                 </viewController>
