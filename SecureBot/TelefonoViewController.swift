@@ -13,6 +13,12 @@ class TelefonoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var numbertresTF: UITextField!
     @IBOutlet weak var numbercuatroTF: UITextField!
     
+    
+    
+    
+    
+    
+    
     @IBOutlet weak var btnverificar: UIButton!
     var maxLenghts = [UITextField: Int]()
     let userData = UserData.sharedData()
@@ -157,4 +163,31 @@ class TelefonoViewController: UIViewController, UITextFieldDelegate {
     
         return newString.length <= maxLenght
     }
+    
+    
+    //TFNUMERO 1
+    
+    @IBAction func numerounoChange(_ sender: Any)
+    {
+       
+    }
+    
+    
+    @IBAction func numerodosChange(_ sender: Any)
+    {
+        
+    }
+    
+    
+    
+    @IBAction func numerotresChange(_ sender: Any)
+    {
+       
+    }
+    
+    @IBAction func numerocuatroChange(_ sender: Any) {
+    }
+    
+    
+    
 }

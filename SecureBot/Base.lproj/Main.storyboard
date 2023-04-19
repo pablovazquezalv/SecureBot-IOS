@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AFs-6B-87W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wup-lj-Tsq">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -131,8 +131,19 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FE-O9-wVh">
+                                        <rect key="frame" x="107.00000000000001" y="588" width="160.33333333333337" height="29.666666666666629"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Olvide mi contraseña">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="olvideMiContraseña:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7wk-xs-kbl"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWy-2e-a7R">
-                                        <rect key="frame" x="30" y="486" width="22" height="22"/>
+                                        <rect key="frame" x="107" y="490" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="0SL-4K-wqz"/>
                                             <constraint firstAttribute="height" constant="22" id="Vf0-z7-s6F"/>
@@ -145,32 +156,21 @@
                                             <action selector="checked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LJx-kW-XUQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FE-O9-wVh">
-                                        <rect key="frame" x="107.00000000000001" y="588" width="160.33333333333337" height="29.666666666666629"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Olvide mi contraseña">
-                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="olvideMiContraseña:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7wk-xs-kbl"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" systemColor="systemYellowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Kgx-kM-CF9" secondAttribute="trailing" constant="30" id="7Dn-aq-Wpi"/>
                                     <constraint firstItem="y1M-CE-g52" firstAttribute="centerX" secondItem="OiL-wc-Z4D" secondAttribute="centerX" id="AWV-0C-6LK"/>
-                                    <constraint firstItem="y1M-CE-g52" firstAttribute="leading" secondItem="DWy-2e-a7R" secondAttribute="trailing" constant="32" id="E7v-Ra-1dz"/>
+                                    <constraint firstItem="y1M-CE-g52" firstAttribute="leading" secondItem="DWy-2e-a7R" secondAttribute="trailing" constant="-45" id="E7v-Ra-1dz"/>
                                     <constraint firstItem="3FE-O9-wVh" firstAttribute="centerX" secondItem="OiL-wc-Z4D" secondAttribute="centerX" id="Gd9-8u-jp1"/>
                                     <constraint firstItem="Kgx-kM-CF9" firstAttribute="top" secondItem="M04-cp-PNb" secondAttribute="bottom" constant="81" id="Q99-aP-Dal"/>
-                                    <constraint firstItem="y1M-CE-g52" firstAttribute="bottom" secondItem="DWy-2e-a7R" secondAttribute="bottom" constant="9" id="UPT-CB-ccm"/>
-                                    <constraint firstItem="DWy-2e-a7R" firstAttribute="top" secondItem="M04-cp-PNb" secondAttribute="bottom" constant="30" id="V5r-6h-rKf"/>
-                                    <constraint firstItem="Kgx-kM-CF9" firstAttribute="top" secondItem="DWy-2e-a7R" secondAttribute="bottom" constant="29" id="ZFC-eL-QBh"/>
+                                    <constraint firstItem="y1M-CE-g52" firstAttribute="bottom" secondItem="DWy-2e-a7R" secondAttribute="bottom" constant="5" id="UPT-CB-ccm"/>
+                                    <constraint firstItem="DWy-2e-a7R" firstAttribute="top" secondItem="M04-cp-PNb" secondAttribute="bottom" constant="34" id="V5r-6h-rKf"/>
+                                    <constraint firstItem="Kgx-kM-CF9" firstAttribute="top" secondItem="DWy-2e-a7R" secondAttribute="bottom" constant="25" id="ZFC-eL-QBh"/>
                                     <constraint firstAttribute="trailing" secondItem="M04-cp-PNb" secondAttribute="trailing" constant="30" id="ZG1-WP-zF8"/>
                                     <constraint firstItem="M04-cp-PNb" firstAttribute="leading" secondItem="OiL-wc-Z4D" secondAttribute="leading" constant="30" id="aKH-uC-i3M"/>
-                                    <constraint firstItem="DWy-2e-a7R" firstAttribute="leading" secondItem="OiL-wc-Z4D" secondAttribute="leading" constant="30" id="ash-Oe-DMb"/>
+                                    <constraint firstItem="DWy-2e-a7R" firstAttribute="leading" secondItem="OiL-wc-Z4D" secondAttribute="leading" constant="107" id="ash-Oe-DMb"/>
                                     <constraint firstAttribute="bottom" secondItem="Kgx-kM-CF9" secondAttribute="bottom" constant="57" id="ff7-pi-vRO"/>
                                     <constraint firstAttribute="bottom" secondItem="M04-cp-PNb" secondAttribute="bottom" constant="170" id="kAs-aH-eJA"/>
                                     <constraint firstItem="Kgx-kM-CF9" firstAttribute="leading" secondItem="OiL-wc-Z4D" secondAttribute="leading" constant="30" id="x80-lU-3Jn"/>
@@ -517,24 +517,36 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="numerounoChange:" destination="Zw7-JH-45L" eventType="editingChanged" id="M8j-wh-4L3"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JL8-ln-3LF">
                                                 <rect key="frame" x="56" y="0.0" width="32" height="34"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="numerodosChange:" destination="Zw7-JH-45L" eventType="editingChanged" id="Gfq-CX-6hx"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y9X-C0-NAj">
                                                 <rect key="frame" x="112" y="0.0" width="32" height="34"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="numerotresChange:" destination="Zw7-JH-45L" eventType="editingDidEnd" id="Lq8-HG-gyQ"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUF-5V-Yl3">
                                                 <rect key="frame" x="168" y="0.0" width="32" height="34"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="numerocuatroChange:" destination="Zw7-JH-45L" eventType="editingChanged" id="dv7-J1-phQ"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -599,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuX-rN-XHp" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4684" y="-1351"/>
+            <point key="canvasLocation" x="2346" y="-618"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="IB9-OQ-g7p">
@@ -741,7 +753,7 @@
                             <constraint firstItem="QMF-eA-WRZ" firstAttribute="top" secondItem="Nxg-n0-nSz" secondAttribute="top" constant="56" id="tzg-qc-a8j"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Perfil" image="usuario.png" selectedImage="square.and.arrow.up.fill" catalog="system" id="i7p-dO-aCz"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="person.fill" catalog="system" selectedImage="person.fill" id="i7p-dO-aCz"/>
                     <connections>
                         <outlet property="btncambiarCorreo" destination="xG7-87-VI6" id="NYc-d9-3cJ"/>
                         <outlet property="btncambiarNombre" destination="RLR-lV-qYx" id="ULB-Zo-szd"/>
@@ -752,7 +764,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtY-Jb-IFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2415.9420289855075" y="146.65178571428569"/>
+            <point key="canvasLocation" x="1629" y="109"/>
         </scene>
         <!--Carritos-->
         <scene sceneID="UUd-cP-KFb">
@@ -798,7 +810,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dce-L7-kG4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3209" y="-621"/>
+            <point key="canvasLocation" x="1681" y="-618"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YeR-gO-RIy">
@@ -813,7 +825,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBU-fO-FBl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3939" y="-627"/>
+            <point key="canvasLocation" x="7175" y="-816"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KMo-h2-Vaf">
@@ -833,11 +845,11 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGS-Hc-ENd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2438" y="-615"/>
+            <point key="canvasLocation" x="894" y="-618"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Mpj-8t-Umv"/>
+        <segue reference="hKf-B1-p8f"/>
         <segue reference="jqq-WY-J3K"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -848,9 +860,8 @@
         <image name="logo.png" width="105" height="100"/>
         <image name="logoforiphone.png" width="255" height="243"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="return" catalog="system" width="128" height="102"/>
-        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
-        <image name="usuario.png" width="128" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
