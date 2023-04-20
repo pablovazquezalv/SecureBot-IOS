@@ -210,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2416" y="-1349"/>
+            <point key="canvasLocation" x="2396" y="-1349"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="ID4-RX-LrO">
@@ -611,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuX-rN-XHp" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3277" y="-653"/>
+            <point key="canvasLocation" x="4776" y="-1351"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="IB9-OQ-g7p">
@@ -937,10 +937,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYh-Ow-gIF" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2376" y="-618"/>
+            <point key="canvasLocation" x="3179" y="-644"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="otE-gb-Zvh"/>
         <segue reference="hKf-B1-p8f"/>
         <segue reference="jqq-WY-J3K"/>
     </inferredMetricsTieBreakers>
