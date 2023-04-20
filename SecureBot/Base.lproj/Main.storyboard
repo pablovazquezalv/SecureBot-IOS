@@ -637,7 +637,8 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="46" height="34.333333333333336"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="    " image="pencil" catalog="system"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
                                                         <connections>
                                                             <action selector="changeName:" destination="A3y-g1-O4l" eventType="touchUpInside" id="Crb-X3-Nss"/>
@@ -658,15 +659,15 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="vqF-l5-Ez3">
                                                 <rect key="frame" x="0.0" y="188.33333333333331" width="394" height="34.333333333333343"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xG7-87-VI6">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xG7-87-VI6">
                                                         <rect key="frame" x="0.0" y="0.0" width="46" height="34.333333333333336"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="    " image="pencil" catalog="system"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
                                                         <connections>
                                                             <action selector="changeCorreo:" destination="A3y-g1-O4l" eventType="touchUpInside" id="Hj9-9M-XdV"/>
-                                                            <action selector="changeEmail:" destination="A3y-g1-O4l" eventType="touchUpInside" id="gcz-ud-fWC"/>
                                                         </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQe-G1-KeC">
@@ -682,11 +683,12 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ekY-LE-aWf">
                                                 <rect key="frame" x="0.0" y="282.66666666666669" width="394" height="34.333333333333314"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdM-QZ-iNO">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdM-QZ-iNO">
                                                         <rect key="frame" x="0.0" y="0.0" width="46" height="34.333333333333336"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="    " image="pencil" catalog="system"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
                                                         <connections>
                                                             <action selector="changePhone:" destination="A3y-g1-O4l" eventType="touchUpInside" id="yuk-wE-2Bu"/>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PerfilViewController: UIViewController {
+class PerfilViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var btncambiarNombre: UIButton!
     @IBOutlet weak var salir: UIButton!
     @IBOutlet weak var btncambiarCorreo: UIButton!
@@ -30,7 +30,20 @@ class PerfilViewController: UIViewController {
         getUser()
         diseño()
         
+        TFcorreo.delegate = self
+        TFtelefono.delegate = self
+        btncambiarCorreo.isEnabled = false
+        btncambiarTelefono.isEnabled = false
+        
         super.viewDidLoad()
+    }
+    
+    func diseño() {
+        salir.layer.cornerRadius = 7.0
+        btncambiarNombre.layer.cornerRadius = 7.0
+        btncambiarCorreo.layer.cornerRadius = 7.0
+        btncambiarTelefono.layer.cornerRadius = 7.0
+        btncontraseña.layer.cornerRadius = 7.0
     }
     
     func getUser() {
@@ -81,18 +94,15 @@ class PerfilViewController: UIViewController {
     }
     
     //FUNCION Validar nombre
-    func invalidName2(_ value: String)-> Any?
-    {
-        if value.count == 0
-        {
+    func invalidName2(_ value: String)-> Bool? {
+        if value.count == 0 {
             return true
         }
         
         let expresionRegular = "^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\\s]+$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", expresionRegular)
 
-        if !predicate.evaluate(with: value)
-        {
+        if !predicate.evaluate(with: value) {
             return true
         }
 
@@ -100,8 +110,7 @@ class PerfilViewController: UIViewController {
     }
     
     
-    func invalidLastName(_ value: String)-> Any?
-    {
+    func invalidLastName(_ value: String)-> Bool? {
         if value.count == 0 {
             return true
         }
@@ -109,32 +118,41 @@ class PerfilViewController: UIViewController {
         let expresionRegular = "^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", expresionRegular)
 
-        if !predicate.evaluate(with: value)
-        {
+        if !predicate.evaluate(with: value) {
             return true
         }
 
         return nil
     }
     
-
-    
-    func invalidEmail(_ value: String)-> String? {
+    func invalidEmail(_ value: String)-> Bool? {
         if value.count == 0 {
-            return "Este campo es requerido"
+            return true
         }
         
         let expresionRegular = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", expresionRegular)
 
         if !predicate.evaluate(with: value) {
-            return "Correo electrónico inválido"
+            return true
         }
                 
         return nil
     }
     
-    func invalidPassword(_ value: String)-> Any? {
+    func invalidNumber(_ value: String)-> Bool? {
+        if value.count == 0 {
+            return true
+        }
+        
+        if value.count < 10 {
+            return true
+        }
+
+        return nil
+    }
+    
+    func invalidPassword(_ value: String)-> Bool? {
         if value.count == 0 {
             return true
         }
@@ -187,8 +205,7 @@ class PerfilViewController: UIViewController {
         return !predicate.evaluate(with: value)
     }
     
-    @IBAction func changed(_ sender: UIButton)
-    {
+    @IBAction func changed(_ sender: UIButton) {
         let alerta = UIAlertController(title: "Cambiar password", message: "Escribe tu contraseña:", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Cambiar", style: .destructive) { [ weak self ] _ in
             guard let self = self else { return }
@@ -229,8 +246,7 @@ class PerfilViewController: UIViewController {
     }
     
     
-    @IBAction func changeName(_ sender: UIButton)
-    {
+    @IBAction func changeName(_ sender: UIButton) {
         let alerta = UIAlertController(title: "Cambiar nombre", message: "Llena los campos:", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Actualizar", style: .destructive) { [ weak self ] _ in
             guard let self = self else { return }
@@ -264,23 +280,25 @@ class PerfilViewController: UIViewController {
         self.present(alerta, animated: true, completion: nil)
     }
     
-    @IBAction func changeEmail(_ sender: Any)
-    {
+    @IBAction func changeEmail(_ sender: Any) {
+        if let email = TFcorreo.text {
+            if TFcorreo.text == email {
+                btncambiarCorreo.isEnabled = false
+            } else {
+                btncambiarCorreo.isEnabled = true
+            }
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @IBAction func changeTel(_ sender: Any)
     {
         
     }
-    
-    func diseño() {
-        salir.layer.cornerRadius = 7.0
-        btncambiarNombre.layer.cornerRadius = 7.0
-        btncambiarCorreo.layer.cornerRadius = 7.0
-        btncambiarTelefono.layer.cornerRadius = 7.0
-        btncontraseña.layer.cornerRadius = 7.0
-    }
-    
+
     @IBAction func changeCorreo(_ sender: Any) {
     }
     
@@ -326,8 +344,7 @@ class PerfilViewController: UIViewController {
         task.resume()
     }
     
-    func changePassword(password: String = "", newPassowrd: String = "")
-    {
+    func changePassword(password: String = "", newPassowrd: String = "") {
         let url = URL(string: "https://securebot.ninja/api/v1/user/password")!
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         request.httpMethod = "PUT"
@@ -343,19 +360,17 @@ class PerfilViewController: UIViewController {
         }
         
         
-        if let invalid = invalidPassword(newPassowrd)
-        {
+        if let invalid = invalidPassword(newPassowrd) {
             let error = UIAlertController(title: "Error", message: "Contraseña inválida. Recuerda que por motivos de seguridad todas las contraseñas deben incluir por lo menos un dígito, una letra mayúscula y un caracter especial (!@#$%^&()-+), además de ser mayores a 8 caracteres.", preferredStyle: .alert)
             let ok = UIAlertAction(title: "Aceptar", style: .default)
             error.addAction(ok)
             self.present(error, animated: true)
             invalido = true
         }
+        
         let  contras = invalidPassword(newPassowrd)
       
-        
-        if contras == nil
-        {
+        if contras == nil {
             let contraseña = password
             let nuevo_password = newPassowrd
             
@@ -426,19 +441,15 @@ class PerfilViewController: UIViewController {
         }
     }
     
-  
-    
     //CAMBIAR NOMBRE
-    func changeNames(name: String = "", ap_paterno: String = "", ap_materno: String = "")
-    {
+    func changeNames(name: String = "", ap_paterno: String = "", ap_materno: String = "") {
         let url = URL(string: "https://securebot.ninja/api/v1/user/names")!
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         request.httpMethod = "PUT"
         var null = false
         var invalido = false
         
-        if name == "" || ap_paterno == "" || ap_materno == ""
-        {
+        if name == "" || ap_paterno == "" || ap_materno == "" {
             let error = UIAlertController(title: "Error", message: "Debes rellenar todos los campos", preferredStyle: .alert)
             let ok = UIAlertAction(title: "Aceptar", style: .default)
             error.addAction(ok)
@@ -446,27 +457,22 @@ class PerfilViewController: UIViewController {
             null = true
         }
         
-    
-         let  nombre = invalidName2(name)
-        let  apellidopaterno = invalidLastName(ap_paterno)
+        let nombre = invalidName2(name)
+        let apellidopaterno = invalidLastName(ap_paterno)
         let apellidomaterno = invalidLastName(ap_materno)
         
-        if nombre == nil && apellidomaterno == nil && apellidopaterno == nil
-        {
-            
+        if nombre == nil && apellidomaterno == nil && apellidopaterno == nil {
             let nombre = name
             let apPaterno = ap_paterno
             let apMaterno = ap_materno
               
-            let requestBody: [String: Any] =
-            [
+            let requestBody: [String: Any] = [
                 "name": nombre,
                 "ap_paterno": apPaterno,
                 "ap_materno": apMaterno
             ]
             
-            do
-            {
+            do {
                 let token = userData.token
                 let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
                 request.httpBody = jsonData
@@ -478,28 +484,23 @@ class PerfilViewController: UIViewController {
             }
               
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let error = error
-                {
+                if let error = error {
                     print("Error en el request: \(error)")
                     return
                 }
                 
-                guard let data = data else
-                {
+                guard let data = data else {
                     print("No se recibió data en la respuesta")
                     return
                 }
                 
-                if !invalido || !null
-                {
+                if !invalido || !null {
                     if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                        do
-                        {
+                        do {
                             let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
                             print("Respuesta: \(responseJSON)")
                             
-                            DispatchQueue.main.async
-                            {
+                            DispatchQueue.main.async {
                                 let alerta = UIAlertController(title: "Nombre cambiado", message: "Tu nombre ha sido actualizado satisfactoriamente.", preferredStyle: .alert)
                                 let ok = UIAlertAction(title: "Aceptar", style: .default)
                                 alerta.addAction(ok)
@@ -507,15 +508,12 @@ class PerfilViewController: UIViewController {
                                 self.viewDidLoad()
                             }
                         }
-                        catch
-                        {
+                        catch {
                             print("Error al convertir la respuesta a JSON: \(error)")
                         }
                     }
-                    else
-                    {
-                        do
-                        {
+                    else {
+                        do {
                             let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
                             print("Respuesta: \(responseJSON)")
                             
@@ -536,10 +534,7 @@ class PerfilViewController: UIViewController {
             }
             
             task.resume()
-            
-        }
-        else
-        {
+        } else {
             let error = UIAlertController(title: "Error", message: "Alguno de tus campos es inválido. Recuerda que estos sólo pueden contener letras.", preferredStyle: .alert)
             let ok = UIAlertAction(title: "Aceptar", style: .default)
             error.addAction(ok)
@@ -547,6 +542,5 @@ class PerfilViewController: UIViewController {
             invalido = true
          print("no entre")
         }
-       
     }
 }
