@@ -80,7 +80,8 @@ class PerfilViewController: UIViewController {
         task.resume()
     }
     
-    func invalidName(_ value: String)-> String? {
+    func invalidName(_ value: String)-> String?
+    {
         if value.count == 0 {
             return "Este campo es requerido"
         }
@@ -230,7 +231,8 @@ class PerfilViewController: UIViewController {
     }
     
     
-    @IBAction func changeName(_ sender: UIButton) {
+    @IBAction func changeName(_ sender: UIButton)
+    {
         let alerta = UIAlertController(title: "Cambiar nombre", message: "Llena los campos:", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Actualizar", style: .destructive) { [ weak self ] _ in
             guard let self = self else { return }
@@ -416,7 +418,8 @@ class PerfilViewController: UIViewController {
         task.resume()
     }
     
-    func changeNames(name: String = "", ap_paterno: String = "", ap_materno: String = "") {
+    func changeNames(name: String = "", ap_paterno: String = "", ap_materno: String = "")
+    {
         let url = URL(string: "https://securebot.ninja/api/v1/user/names")!
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         request.httpMethod = "PUT"
@@ -431,8 +434,11 @@ class PerfilViewController: UIViewController {
             null = true
         }
         
+      
         if let invalidN = invalidName(name),
-           let invalidP = invalidLastName(ap_paterno), let invalidM = invalidLastName(ap_materno) {
+           let invalidP = invalidLastName(ap_paterno),
+           let invalidM = invalidLastName(ap_materno)
+        {
             let error = UIAlertController(title: "Error", message: "Alguno de tus campos es inválido. Recuerda que estos sólo pueden contener letras.", preferredStyle: .alert)
             let ok = UIAlertAction(title: "Aceptar", style: .default)
             error.addAction(ok)

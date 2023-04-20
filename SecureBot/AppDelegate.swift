@@ -36,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return .portrait
     }
     
-    func openFile() {
+    func openFile()
+    {
            let datos = UserData.sharedData()
            let ruta = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/Conf.plist"
            let urlArchivo = URL(fileURLWithPath: ruta)
