@@ -246,6 +246,7 @@ class PerfilViewController: UIViewController {
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel)
         
         alerta.addTextField { textField in
+           
             textField.placeholder = "Ingresa tu nombre"
             textField.text = self.userName
         }
@@ -418,6 +419,23 @@ class PerfilViewController: UIViewController {
         task.resume()
     }
     
+    func invalidName2(_ value: String)-> Any?
+    {
+        if value.count == 0
+        {
+            return true
+        }
+        
+        let expresionRegular = "^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\\s]+$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", expresionRegular)
+
+        if !predicate.evaluate(with: value)
+        {
+            return true
+        }
+
+        return nil
+    }
     func changeNames(name: String = "", ap_paterno: String = "", ap_materno: String = "")
     {
         let url = URL(string: "https://securebot.ninja/api/v1/user/names")!
@@ -426,7 +444,8 @@ class PerfilViewController: UIViewController {
         var null = false
         var invalido = false
         
-        if name == "" || ap_paterno == "" || ap_materno == "" {
+        if name == "" || ap_paterno == "" || ap_materno == ""
+        {
             let error = UIAlertController(title: "Error", message: "Debes rellenar todos los campos", preferredStyle: .alert)
             let ok = UIAlertAction(title: "Aceptar", style: .default)
             error.addAction(ok)
@@ -434,9 +453,7 @@ class PerfilViewController: UIViewController {
             null = true
         }
         
-      
-        if let invalidN = invalidName(name),
-           let invalidP = invalidLastName(ap_paterno),
+      /*  if let invalidN = invalidName(name),let invalidP = invalidLastName(ap_paterno),
            let invalidM = invalidLastName(ap_materno)
         {
             let error = UIAlertController(title: "Error", message: "Alguno de tus campos es inválido. Recuerda que estos sólo pueden contener letras.", preferredStyle: .alert)
@@ -445,76 +462,107 @@ class PerfilViewController: UIViewController {
             self.present(error, animated: true)
             invalido = true
         }
+        */
+         let  nombre = invalidName2(name)
+        let  apellidopaterno = invalidLastName(ap_paterno)
+        let apellidomaterno = invalidLastName(ap_materno)
         
-        let nombre = name
-        let apPaterno = ap_paterno
-        let apMaterno = ap_materno
-          
-        let requestBody: [String: Any] = [
-            "name": nombre,
-            "ap_paterno": apPaterno,
-            "ap_materno": apMaterno
-        ]
-        
-        do {
-            let token = userData.token
-            let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
-            request.httpBody = jsonData
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        } catch {
-            print("Error al convertir el cuerpo del request a JSON: \(error)")
-            return
-        }
-          
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print("Error en el request: \(error)")
+        if nombre == nil && apellidomaterno == nil && apellidopaterno == nil
+        {
+            
+            let nombre = name
+            let apPaterno = ap_paterno
+            let apMaterno = ap_materno
+              
+            let requestBody: [String: Any] =
+            [
+                "name": nombre,
+                "ap_paterno": apPaterno,
+                "ap_materno": apMaterno
+            ]
+            
+            do
+            {
+                let token = userData.token
+                let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+                request.httpBody = jsonData
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            } catch {
+                print("Error al convertir el cuerpo del request a JSON: \(error)")
                 return
             }
-            
-            guard let data = data else {
-                print("No se recibió data en la respuesta")
-                return
-            }
-            
-            if !invalido || !null {
-                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                    do {
-                        let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
-                        print("Respuesta: \(responseJSON)")
-                        
-                        DispatchQueue.main.async {
-                            let alerta = UIAlertController(title: "Nombre cambiado", message: "Tu nombre ha sido actualizado satisfactoriamente.", preferredStyle: .alert)
-                            let ok = UIAlertAction(title: "Aceptar", style: .default)
-                            alerta.addAction(ok)
-                            self.present(alerta, animated: true)
-                            self.viewDidLoad()
-                        }
-                    } catch {
-                        print("Error al convertir la respuesta a JSON: \(error)")
-                    }
-                } else {
-                    do {
-                        let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
-                        print("Respuesta: \(responseJSON)")
-                        
-                        if let jsonDict = responseJSON as? [String: Any],
-                           let message = jsonDict["message"] as? String {
-                            DispatchQueue.main.async {
-                                let error = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+              
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error
+                {
+                    print("Error en el request: \(error)")
+                    return
+                }
+                
+                guard let data = data else
+                {
+                    print("No se recibió data en la respuesta")
+                    return
+                }
+                
+                if !invalido || !null
+                {
+                    if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                        do
+                        {
+                            let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                            print("Respuesta: \(responseJSON)")
+                            
+                            DispatchQueue.main.async
+                            {
+                                let alerta = UIAlertController(title: "Nombre cambiado", message: "Tu nombre ha sido actualizado satisfactoriamente.", preferredStyle: .alert)
                                 let ok = UIAlertAction(title: "Aceptar", style: .default)
-                                error.addAction(ok)
-                                self.present(error, animated: true)
+                                alerta.addAction(ok)
+                                self.present(alerta, animated: true)
+                                self.viewDidLoad()
                             }
                         }
-                    } catch {
-                        print("Error al convertir la respuesta a JSON: \(error)")
+                        catch
+                        {
+                            print("Error al convertir la respuesta a JSON: \(error)")
+                        }
+                    }
+                    else
+                    {
+                        do
+                        {
+                            let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                            print("Respuesta: \(responseJSON)")
+                            
+                            if let jsonDict = responseJSON as? [String: Any],
+                               let message = jsonDict["message"] as? String {
+                                DispatchQueue.main.async {
+                                    let error = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                                    let ok = UIAlertAction(title: "Aceptar", style: .default)
+                                    error.addAction(ok)
+                                    self.present(error, animated: true)
+                                }
+                            }
+                        } catch {
+                            print("Error al convertir la respuesta a JSON: \(error)")
+                        }
                     }
                 }
             }
+            
+            task.resume()
+            
         }
-        
-        task.resume()
+        else
+        {
+            let error = UIAlertController(title: "Error", message: "Alguno de tus campos es inválido. Recuerda que estos sólo pueden contener letras.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Aceptar", style: .default)
+            error.addAction(ok)
+            self.present(error, animated: true)
+            invalido = true
+         print("no entre")
+        }
+       
     }
 }
