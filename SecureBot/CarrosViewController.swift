@@ -39,10 +39,10 @@ class CarrosViewController: UIViewController {
     {
            var y = 10
            for i in 0..<carros.count {
-               let vista = UIView(frame: CGRect(x: 10, y: y, width: Int(srcCarros.frame.width - 20), height: 100))
+               let vista = UIView(frame: CGRect(x: 10, y: y, width: Int(srcCarros.frame.width - 20), height: 80))
                vista.backgroundColor = .white
                
-               let imagen = UIImageView(frame: CGRect(x: 5, y: 5, width: 90, height: 66))
+               let imagen = UIImageView(frame: CGRect(x: 5, y: 25, width: 76.6, height: 45))
                imagen.image = UIImage(named: "carsrc-PhotoRoom.png-PhotoRoom.png")
               
                
@@ -52,9 +52,9 @@ class CarrosViewController: UIViewController {
                lblNombre.minimumScaleFactor = 0.5
                lblNombre.adjustsFontSizeToFitWidth = true
                
-               let lblEspecie = UILabel(frame: CGRect(x: 100, y: 37, width: Int(vista.frame.width - 105), height: 28))
-               lblEspecie.text = carros[i].descripcion
-               lblEspecie.font = .systemFont(ofSize: 17)
+               let lblDescripcion = UILabel(frame: CGRect(x: 100, y: 37, width: Int(vista.frame.width - 105), height: 28))
+               lblDescripcion.text = carros[i].descripcion
+               lblDescripcion.font = .systemFont(ofSize: 17)
                
         
                
@@ -64,11 +64,11 @@ class CarrosViewController: UIViewController {
                
                vista.addSubview(imagen)
                vista.addSubview(lblNombre)
-               vista.addSubview(lblEspecie)
+               vista.addSubview(lblDescripcion)
              
                vista.addSubview(boton)
                srcCarros.addSubview(vista)
-               y += 110
+               y += 90
            }
            srcCarros.contentSize = CGSize(width: 0, height: y)
        }

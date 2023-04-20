@@ -14,18 +14,14 @@ class SensoresViewController: UIViewController {
     
     @IBOutlet weak var srcSensores: UIScrollView!
     var sensores:[String] = []
-    var nombres:[String] = []
-    var fechas:[String] = []
     var codigos:[String] = []
     var contador = 0
 
     
  
+
     
-    
-    
-    
-    
+  
     
     override func viewDidLoad()
     {
@@ -45,13 +41,13 @@ class SensoresViewController: UIViewController {
             
             
             let nombre = UILabel(frame: CGRect(x: 5, y: 5, width: vista.frame.width - 10, height: 25))
-            nombre.text = nombres[i]
+            nombre.text = "no"
             nombre.font = .boldSystemFont(ofSize: 25)
             nombre.adjustsFontSizeToFitWidth = true
             nombre.minimumScaleFactor = 0.5
             
             let fecha = UILabel(frame: CGRect(x: 5, y: 30, width: vista.frame.width - 10, height: 20))
-            fecha.text = fechas[i]
+            fecha.text = "20"
             fecha.font = .systemFont(ofSize: 30)
             fecha.adjustsFontSizeToFitWidth = true
             fecha.minimumScaleFactor = 0.5
