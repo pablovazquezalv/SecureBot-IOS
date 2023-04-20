@@ -675,7 +675,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
-                                                            <action selector="changesEmail:" destination="A3y-g1-O4l" eventType="editingDidEnd" id="cBX-Nk-PoF"/>
+                                                            <action selector="changeEmail:" destination="A3y-g1-O4l" eventType="editingDidEnd" id="r0v-vw-y40"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>

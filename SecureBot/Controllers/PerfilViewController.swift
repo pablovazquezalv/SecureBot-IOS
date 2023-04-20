@@ -37,6 +37,12 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
         
         super.viewDidLoad()
     }
+  
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+
+    }
     
     func diseño() {
         salir.layer.cornerRadius = 7.0
@@ -290,9 +296,7 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+    
     
     @IBAction func changeTel(_ sender: Any)
     {
