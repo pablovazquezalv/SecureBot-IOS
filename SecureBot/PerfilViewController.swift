@@ -80,48 +80,44 @@ class PerfilViewController: UIViewController {
         task.resume()
     }
     
-    func invalidName(_ value: String)-> String?
+    //FUNCION Validar nombre
+    func invalidName2(_ value: String)-> Any?
     {
-        if value.count == 0 {
-            return "Este campo es requerido"
+        if value.count == 0
+        {
+            return true
         }
         
         let expresionRegular = "^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\\s]+$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", expresionRegular)
 
-        if !predicate.evaluate(with: value) {
-            return "Este campo sólo acepta letras"
+        if !predicate.evaluate(with: value)
+        {
+            return true
         }
 
         return nil
     }
     
-    func invalidLastName(_ value: String)-> String? {
+    
+    func invalidLastName(_ value: String)-> Any?
+    {
         if value.count == 0 {
-            return "Este campo es requerido"
+            return true
         }
         
         let expresionRegular = "^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", expresionRegular)
 
-        if !predicate.evaluate(with: value) {
-            return "Este campo sólo acepta letras"
+        if !predicate.evaluate(with: value)
+        {
+            return true
         }
 
         return nil
     }
     
-    func invalidNumber(_ value: String)-> String? {
-        if value.count == 0 {
-            return "Este campo es requerido"
-        }
-        
-        if value.count < 10 {
-            return "Este campo debe tener al menos 10 caracteres"
-        }
 
-        return nil
-    }
     
     func invalidEmail(_ value: String)-> String? {
         if value.count == 0 {
@@ -138,29 +134,30 @@ class PerfilViewController: UIViewController {
         return nil
     }
     
-    func invalidPassword(_ value: String)-> String? {
+    func invalidPassword(_ value: String)-> Any? {
         if value.count == 0 {
-            return "Este campo es requerido"
+            return true
         }
         
         if value.count < 8 {
-            return  "Este campo debe tener al menos 8 caracteres"
+            return true
         }
         
         if containsDigit(value) {
-            return "Este campo debe contener al menos un dígito"
+            return true
         }
         
         if containsLowerCase(value) {
-            return "Este campo debe contener al menos una minúscula"
+            return true
         }
         
         if containsUpperCase(value) {
-            return "Este campo debe contener al menos una mayúscula"
+            return true
         }
         
-        if containsSpecialCharacter(value) {
-            return "Este campo debe contener al menos un caracter especial (!@#$%^&()-+)"
+        if containsSpecialCharacter(value)
+        {
+            return true
         }
                 
         return nil
@@ -190,7 +187,8 @@ class PerfilViewController: UIViewController {
         return !predicate.evaluate(with: value)
     }
     
-    @IBAction func changed(_ sender: UIButton) {
+    @IBAction func changed(_ sender: UIButton)
+    {
         let alerta = UIAlertController(title: "Cambiar password", message: "Escribe tu contraseña:", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Cambiar", style: .destructive) { [ weak self ] _ in
             guard let self = self else { return }
@@ -270,7 +268,9 @@ class PerfilViewController: UIViewController {
     {
     }
     
-    @IBAction func changeTel(_ sender: Any) {
+    @IBAction func changeTel(_ sender: Any)
+    {
+        
     }
     
     func diseño() {
@@ -326,7 +326,8 @@ class PerfilViewController: UIViewController {
         task.resume()
     }
     
-    func changePassword(password: String = "", newPassowrd: String = "") {
+    func changePassword(password: String = "", newPassowrd: String = "")
+    {
         let url = URL(string: "https://securebot.ninja/api/v1/user/password")!
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         request.httpMethod = "PUT"
@@ -342,100 +343,92 @@ class PerfilViewController: UIViewController {
         }
         
         
-        if let invalid = invalidPassword(newPassowrd) {
+        if let invalid = invalidPassword(newPassowrd)
+        {
             let error = UIAlertController(title: "Error", message: "Contraseña inválida. Recuerda que por motivos de seguridad todas las contraseñas deben incluir por lo menos un dígito, una letra mayúscula y un caracter especial (!@#$%^&()-+), además de ser mayores a 8 caracteres.", preferredStyle: .alert)
             let ok = UIAlertAction(title: "Aceptar", style: .default)
             error.addAction(ok)
             self.present(error, animated: true)
             invalido = true
         }
+        let  contras = invalidPassword(newPassowrd)
+      
         
-        let contraseña = password
-        let nuevo_password = newPassowrd
-          
-        let requestBody: [String: Any] = [
-            "password": contraseña,
-            "new_password": nuevo_password
-        ]
-        
-        do {
-            let token = userData.token
-            let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
-            request.httpBody = jsonData
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        } catch {
-            print("Error al convertir el cuerpo del request a JSON: \(error)")
-            return
-        }
-          
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print("Error en el request: \(error)")
+        if contras == nil
+        {
+            let contraseña = password
+            let nuevo_password = newPassowrd
+            
+            let requestBody: [String: Any] = [
+                "password": contraseña,
+                "new_password": nuevo_password
+            ]
+            
+            do {
+                let token = userData.token
+                let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+                request.httpBody = jsonData
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            } catch {
+                print("Error al convertir el cuerpo del request a JSON: \(error)")
                 return
             }
             
-            guard let data = data else {
-                print("No se recibió data en la respuesta")
-                return
-            }
-            
-            if !invalido || !null {
-                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                    do {
-                        let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
-                        print("Respuesta: \(responseJSON)")
-                        
-                        DispatchQueue.main.async {
-                            let alerta = UIAlertController(title: "Contraseña cambiada", message: "Tu contraseña ha sido actualizada satisfactoriamente.", preferredStyle: .alert)
-                            let ok = UIAlertAction(title: "Aceptar", style: .default)
-                            alerta.addAction(ok)
-                            self.present(alerta, animated: true)
-                        }
-                    } catch {
-                        print("Error al convertir la respuesta a JSON: \(error)")
-                    }
-                } else {
-                    do {
-                        let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
-                        print("Respuesta: \(responseJSON)")
-                        
-                        if let jsonDict = responseJSON as? [String: Any],
-                           let message = jsonDict["message"] as? String {
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Error en el request: \(error)")
+                    return
+                }
+                
+                guard let data = data else {
+                    print("No se recibió data en la respuesta")
+                    return
+                }
+                
+                if !invalido || !null {
+                    if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                        do {
+                            let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                            print("Respuesta: \(responseJSON)")
+                            
                             DispatchQueue.main.async {
-                                let error = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                                let alerta = UIAlertController(title: "Contraseña cambiada", message: "Tu contraseña ha sido actualizada satisfactoriamente.", preferredStyle: .alert)
                                 let ok = UIAlertAction(title: "Aceptar", style: .default)
-                                error.addAction(ok)
-                                self.present(error, animated: true)
+                                alerta.addAction(ok)
+                                self.present(alerta, animated: true)
                             }
+                        } catch {
+                            print("Error al convertir la respuesta a JSON: \(error)")
                         }
-                    } catch {
-                        print("Error al convertir la respuesta a JSON: \(error)")
+                    } else {
+                        do {
+                            let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                            print("Respuesta: \(responseJSON)")
+                            
+                            if let jsonDict = responseJSON as? [String: Any],
+                               let message = jsonDict["message"] as? String {
+                                DispatchQueue.main.async {
+                                    let error = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                                    let ok = UIAlertAction(title: "Aceptar", style: .default)
+                                    error.addAction(ok)
+                                    self.present(error, animated: true)
+                                }
+                            }
+                        } catch {
+                            print("Error al convertir la respuesta a JSON: \(error)")
+                        }
                     }
                 }
             }
+            
+            task.resume()
         }
-        
-        task.resume()
     }
     
-    func invalidName2(_ value: String)-> Any?
-    {
-        if value.count == 0
-        {
-            return true
-        }
-        
-        let expresionRegular = "^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\\s]+$"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", expresionRegular)
-
-        if !predicate.evaluate(with: value)
-        {
-            return true
-        }
-
-        return nil
-    }
+  
+    
+    //CAMBIAR NOMBRE
     func changeNames(name: String = "", ap_paterno: String = "", ap_materno: String = "")
     {
         let url = URL(string: "https://securebot.ninja/api/v1/user/names")!
@@ -453,16 +446,7 @@ class PerfilViewController: UIViewController {
             null = true
         }
         
-      /*  if let invalidN = invalidName(name),let invalidP = invalidLastName(ap_paterno),
-           let invalidM = invalidLastName(ap_materno)
-        {
-            let error = UIAlertController(title: "Error", message: "Alguno de tus campos es inválido. Recuerda que estos sólo pueden contener letras.", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "Aceptar", style: .default)
-            error.addAction(ok)
-            self.present(error, animated: true)
-            invalido = true
-        }
-        */
+    
          let  nombre = invalidName2(name)
         let  apellidopaterno = invalidLastName(ap_paterno)
         let apellidomaterno = invalidLastName(ap_materno)
