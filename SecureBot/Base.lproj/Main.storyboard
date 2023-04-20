@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AFs-6B-87W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OiL-sO-317">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -782,12 +782,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtY-Jb-IFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1629" y="109"/>
+            <point key="canvasLocation" x="894" y="150"/>
         </scene>
         <!--Carritos-->
         <scene sceneID="UUd-cP-KFb">
             <objects>
-                <viewController id="OiL-sO-317" sceneMemberID="viewController">
+                <viewController id="OiL-sO-317" customClass="CarrosViewController" customModule="SecureBot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M3x-4z-vig">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -802,8 +802,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eok-Qj-l3j">
-                                <rect key="frame" x="0.0" y="70" width="430" height="656"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eok-Qj-l3j">
+                                <rect key="frame" x="0.0" y="70" width="393" height="677"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="gto-h6-Agr"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="zKd-WX-Zur"/>
                             </scrollView>
@@ -814,21 +815,56 @@
                         <constraints>
                             <constraint firstItem="rm1-fv-zrd" firstAttribute="trailing" secondItem="Rs8-IT-SrS" secondAttribute="trailing" id="4ib-zc-uWA"/>
                             <constraint firstItem="Rs8-IT-SrS" firstAttribute="top" secondItem="rm1-fv-zrd" secondAttribute="top" id="6DJ-bX-Fpa"/>
-                            <constraint firstItem="rm1-fv-zrd" firstAttribute="bottom" secondItem="eok-Qj-l3j" secondAttribute="bottom" constant="21" id="Q6S-bq-MTd"/>
-                            <constraint firstItem="eok-Qj-l3j" firstAttribute="top" secondItem="rm1-fv-zrd" secondAttribute="top" constant="113" id="Qad-GR-poR"/>
-                            <constraint firstItem="eok-Qj-l3j" firstAttribute="trailing" secondItem="rm1-fv-zrd" secondAttribute="trailing" id="S1D-G2-dTX"/>
                             <constraint firstItem="rm1-fv-zrd" firstAttribute="bottom" secondItem="Rs8-IT-SrS" secondAttribute="bottom" id="lqu-jg-t6x"/>
                             <constraint firstItem="Rs8-IT-SrS" firstAttribute="leading" secondItem="rm1-fv-zrd" secondAttribute="leading" id="rH7-J0-Uds"/>
-                            <constraint firstItem="eok-Qj-l3j" firstAttribute="leading" secondItem="rm1-fv-zrd" secondAttribute="leading" id="xdS-mg-Lgw"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Carritos" image="car" catalog="system" id="Mhd-cE-pd8">
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="srcCarros" destination="eok-Qj-l3j" id="tnI-o6-YSm"/>
+                        <segue destination="wPR-yh-uUe" kind="presentation" identifier="sgSensores" id="nrW-JL-eox"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dce-L7-kG4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1603" y="-618"/>
+            <point key="canvasLocation" x="1676" y="-411"/>
+        </scene>
+        <!--Sensores View Controller-->
+        <scene sceneID="7yj-NC-ClB">
+            <objects>
+                <viewController id="wPR-yh-uUe" customClass="SensoresViewController" customModule="SecureBot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XT1-1a-dkY">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1681318669742.png" translatesAutoresizingMaskIntoConstraints="NO" id="sgG-Vx-5Nz">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBa-K0-t7O">
+                                <rect key="frame" x="0.0" y="59" width="393" height="697"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="nW5-t8-pFs"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="qFc-nc-AwS"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i4D-Kp-WWh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="sgG-Vx-5Nz" secondAttribute="bottom" id="e83-PM-3x0"/>
+                            <constraint firstItem="sgG-Vx-5Nz" firstAttribute="leading" secondItem="i4D-Kp-WWh" secondAttribute="leading" id="gJa-8V-EN0"/>
+                            <constraint firstItem="sgG-Vx-5Nz" firstAttribute="top" secondItem="XT1-1a-dkY" secondAttribute="top" id="mG8-Zf-pDy"/>
+                            <constraint firstItem="sgG-Vx-5Nz" firstAttribute="trailing" secondItem="i4D-Kp-WWh" secondAttribute="trailing" id="yCy-7c-puV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="srcSensores" destination="FBa-K0-t7O" id="Bqq-A7-vRd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqJ-w0-m19" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2482" y="-411"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YeR-gO-RIy">
@@ -942,7 +978,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="hKf-B1-p8f"/>
-        <segue reference="jqq-WY-J3K"/>
+        <segue reference="w1x-Cz-sNa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1681318669742.png" width="3240" height="4860"/>
