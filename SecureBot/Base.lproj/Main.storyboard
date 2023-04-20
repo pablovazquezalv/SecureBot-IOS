@@ -665,13 +665,17 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
                                                         <connections>
+                                                            <action selector="changeCorreo:" destination="A3y-g1-O4l" eventType="touchUpInside" id="Hj9-9M-XdV"/>
                                                             <action selector="changeEmail:" destination="A3y-g1-O4l" eventType="touchUpInside" id="gcz-ud-fWC"/>
                                                         </connections>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQe-G1-KeC">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQe-G1-KeC">
                                                         <rect key="frame" x="49" y="0.0" width="345" height="34.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="changesEmail:" destination="A3y-g1-O4l" eventType="editingDidEnd" id="cBX-Nk-PoF"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -684,8 +688,11 @@
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="changePhone:" destination="A3y-g1-O4l" eventType="touchUpInside" id="yuk-wE-2Bu"/>
+                                                        </connections>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T8A-b3-Rcn">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T8A-b3-Rcn">
                                                         <rect key="frame" x="49" y="0.0" width="345" height="34.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -717,6 +724,10 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Salir"/>
+                                        <connections>
+                                            <action selector="logout:" destination="A3y-g1-O4l" eventType="touchUpInside" id="BlP-w2-fmc"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="sgLogout" id="w1x-Cz-sNa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -858,7 +869,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="hKf-B1-p8f"/>
-        <segue reference="jqq-WY-J3K"/>
+        <segue reference="w1x-Cz-sNa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1681318669742.png" width="3240" height="4860"/>
