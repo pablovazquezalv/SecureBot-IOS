@@ -16,7 +16,7 @@ class EmpresaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        btnCrearEmpresa.layer.cornerRadius = 7.0
         // Do any additional setup after loading the view.
     }
     
