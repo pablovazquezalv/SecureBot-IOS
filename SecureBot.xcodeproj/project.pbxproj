@@ -122,6 +122,31 @@
 			path = rolas;
 			sourceTree = "<group>";
 		};
+		886B5AF729F1EAD600E0CC62 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				882D841729F089930010BA6F /* User.swift */,
+				886B5AEA29F1CB3B00E0CC62 /* Carro.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		886B5AF929F1EAF600E0CC62 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				883FF76329E74B3200F9B608 /* SplashViewController.swift */,
+				88BDDBC429E717DB00BDF086 /* ViewController.swift */,
+				88EFC59929E76300008FB20B /* RegisterViewController.swift */,
+				8821932C29E8894D00841026 /* InstruccionesViewController.swift */,
+				88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */,
+				886B5AE629F19F0700E0CC62 /* EmpresaViewController.swift */,
+				886B5AE829F1C4C900E0CC62 /* CarrosViewController.swift */,
+				886B5AEE29F1D4EB00E0CC62 /* SensoresViewController.swift */,
+				8836D7A629E8931000668B39 /* PerfilViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		88BDDBB429E717DB00BDF086 = {
 			isa = PBXGroup;
 			children = (
@@ -147,18 +172,9 @@
 			children = (
 				88BDDBC029E717DB00BDF086 /* AppDelegate.swift */,
 				88BDDBC229E717DB00BDF086 /* SceneDelegate.swift */,
-				88BDDBC429E717DB00BDF086 /* ViewController.swift */,
 				88530D4429EDB383006D1061 /* UserData.swift */,
-				886B5AEA29F1CB3B00E0CC62 /* Carro.swift */,
-				882D841729F089930010BA6F /* User.swift */,
-				883FF76329E74B3200F9B608 /* SplashViewController.swift */,
-				88EFC59929E76300008FB20B /* RegisterViewController.swift */,
-				88EFC59B29E7661A008FB20B /* TelefonoViewController.swift */,
-				886B5AE629F19F0700E0CC62 /* EmpresaViewController.swift */,
-				886B5AE829F1C4C900E0CC62 /* CarrosViewController.swift */,
-				886B5AEE29F1D4EB00E0CC62 /* SensoresViewController.swift */,
-				8821932C29E8894D00841026 /* InstruccionesViewController.swift */,
-				8836D7A629E8931000668B39 /* PerfilViewController.swift */,
+				886B5AF929F1EAF600E0CC62 /* Controllers */,
+				886B5AF729F1EAD600E0CC62 /* Models */,
 				88BDDBC629E717DB00BDF086 /* Main.storyboard */,
 				88BDDBC929E717DD00BDF086 /* Assets.xcassets */,
 				886B5AF429F1E83600E0CC62 /* rolas */,
