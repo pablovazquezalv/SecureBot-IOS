@@ -31,6 +31,7 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var btncontraseña: UIButton!
     override func viewDidLoad() {
         getUser()
+        getCompany()
         diseño()
         
         TFcorreo.delegate = self
@@ -92,6 +93,47 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
                             self.amUser = ap_materno
                             self.emailUser = email
                             self.phoneUser = phone_number
+                        }
+                    }
+                } catch {
+                    print("Error al convertir la respuesta a JSON: \(error)")
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func getCompany() {
+        let url = URL(string: "https://securebot.ninja/api/v1/company/user")!
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        request.httpMethod = "GET"
+        
+        let token = userData.token
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error en el request: \(error)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No se recibió data en la respuesta")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                do {
+                    let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                    print("Respuesta: \(responseJSON)")
+                    
+                    if let jsonDict = responseJSON as? [String: Any],
+                       let dataDict = jsonDict["data"] as? [String: Any],
+                       let name = dataDict["name"] as? String {
+                        DispatchQueue.main.async {
+                            self.TFempresa.text = name
                         }
                     }
                 } catch {
