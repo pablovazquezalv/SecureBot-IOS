@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import AVFoundation
 class SensoresViewController: UIViewController {
 
     
@@ -16,7 +16,7 @@ class SensoresViewController: UIViewController {
     var nombre:[String] = []
     var codigos:[String] = []
     var contador = 0
-
+    var reproductor = AVAudioPlayer()
     
 
     
@@ -25,6 +25,8 @@ class SensoresViewController: UIViewController {
         super.viewDidLoad()
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
             self.consultarServicio()
+            self.musica()
+            self.reproductor.play()
            }
     }
     
@@ -156,6 +158,16 @@ class SensoresViewController: UIViewController {
         
         srcSensores.contentSize = CGSize(width: 0, height: y)
     }
-    
+    func musica()
+    {
+        if let rutaTrack = Bundle.main.path(forResource: "Snapchat Notificación - Efecto de Sonido_BZVsPIvJrD", ofType: "mp3") {
+            let urlTrack = URL(fileURLWithPath: rutaTrack)
+            do {
+                try reproductor = AVAudioPlayer(contentsOf: urlTrack)
+            } catch {
+               print("no")
+            }
+        }
+    }
 
 }
