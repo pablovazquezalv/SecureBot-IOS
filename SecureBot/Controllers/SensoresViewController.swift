@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AVFoundation
 class SensoresViewController: UIViewController {
 
     
@@ -16,7 +15,6 @@ class SensoresViewController: UIViewController {
     var nombre:[String] = []
     var codigos:[String] = []
     var contador = 0
-    var reproductor = AVAudioPlayer()
     
 
     
@@ -25,8 +23,6 @@ class SensoresViewController: UIViewController {
         super.viewDidLoad()
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
             self.consultarServicio()
-            self.musica()
-            self.reproductor.play()
            }
     }
     
@@ -62,61 +58,7 @@ class SensoresViewController: UIViewController {
                 }
             }.resume()
         }
-    func hasEnterprise() {
-        let url = URL(string: "https://securebot.ninja/api/v1/user/company")!
-        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
-        request.httpMethod = "GET"
-        
-        let token = userData.token
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("Error al realizar la solicitud")
-                return
-            }
-            
-            let responseString = String(data: data, encoding: .utf8)!
-            if responseString == "true" {
-                self.userData.hasEnterprise = true
-                print("Si \(self.userData.hasEnterprise)")
-            } else {
-                self.userData.hasEnterprise = false
-                print("No \(self.userData.hasEnterprise)")
-            }
-        }
-        
-        task.resume()
-    }
-    
-    func isInProcess() {
-        let url = URL(string: "https://securebot.ninja/api/v1/user/request")!
-        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
-        request.httpMethod = "GET"
-        
-        let token = userData.token
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("Error al realizar la solicitud")
-                return
-            }
-            
-            let responseString = String(data: data, encoding: .utf8)!
-            if responseString == "true" {
-                self.userData.isInProcess = true
-                print("Si \(self.userData.isInProcess)")
-            } else {
-                self.userData.isInProcess = false
-                print("No \(self.userData.isInProcess)")
-            }
-        }
-        
-        task.resume()
-    }
+     
         func dibujarEpisodios()
     {
         var y = 10
@@ -157,17 +99,6 @@ class SensoresViewController: UIViewController {
         }
         
         srcSensores.contentSize = CGSize(width: 0, height: y)
-    }
-    func musica()
-    {
-        if let rutaTrack = Bundle.main.path(forResource: "Snapchat Notificación - Efecto de Sonido_BZVsPIvJrD", ofType: "mp3") {
-            let urlTrack = URL(fileURLWithPath: rutaTrack)
-            do {
-                try reproductor = AVAudioPlayer(contentsOf: urlTrack)
-            } catch {
-               print("no")
-            }
-        }
     }
 
 }
