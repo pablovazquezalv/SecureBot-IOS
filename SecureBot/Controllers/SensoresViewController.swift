@@ -23,8 +23,9 @@ class SensoresViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        consultarServicio()
+        Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
+            self.consultarServicio()
+           }
     }
     
     func consultarServicio()
@@ -40,6 +41,7 @@ class SensoresViewController: UIViewController {
                 do{
                     let json = try JSONSerialization.jsonObject(with: datos!,options: []) as? [Any]
                     if let resultados = json {
+                        self.sensor.removeAll()
                         for carro in  resultados
                         {
                             if let datos = carro as? [String:Any]
@@ -119,7 +121,7 @@ class SensoresViewController: UIViewController {
         for i in 0..<sensor.count
         {
             let vista = UIView(frame: CGRect(x: 10, y: y, width: Int(srcSensores.frame.width) - 20, height: 70))
-            vista.backgroundColor = .gray
+            vista.backgroundColor = .white
             
             
             let nombre = UILabel(frame: CGRect(x: 5, y: 5, width: vista.frame.width - 10, height: 25))
