@@ -8,25 +8,85 @@
 import UIKit
 
 class CarrosViewController: UIViewController {
-
     @IBOutlet weak var srcCarros: UIScrollView!
     var carros: [Carro] = [Carro(name: "Almacen", descripcion: "Ver rutas"),Carro(name: "Linea 5", descripcion: "Ver maquinas")]
+    let userData = UserData.sharedData()
 
-
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         dibujarPersonajes()
-        
-       
+        hasEnterprise()
+        isInProcess()
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if userData.hasEnterprise == false || userData.isInProcess == true {
+            performSegue(withIdentifier: "sgNoEnterprise", sender: self)
+        }
+    }
+    
+    func hasEnterprise() {
+        let url = URL(string: "https://securebot.ninja/api/v1/user/company")!
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        request.httpMethod = "GET"
+        
+        let token = userData.token
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                print("Error al realizar la solicitud")
+                return
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)!
+            if responseString == "true" {
+                self.userData.hasEnterprise = true
+                print("Si \(self.userData.hasEnterprise)")
+            } else {
+                self.userData.hasEnterprise = false
+                print("No \(self.userData.hasEnterprise)")
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func isInProcess() {
+        let url = URL(string: "https://securebot.ninja/api/v1/user/request")!
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        request.httpMethod = "GET"
+        
+        let token = userData.token
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                print("Error al realizar la solicitud")
+                return
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)!
+            if responseString == "true" {
+                self.userData.isInProcess = true
+                print("Si \(self.userData.isInProcess)")
+            } else {
+                self.userData.isInProcess = false
+                print("No \(self.userData.isInProcess)")
+            }
+        }
+        
+        task.resume()
+    }
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let boton =  sender as! UIButton
         let vc = segue.destination as! SensoresViewController
         
         vc.sensores = carros[boton.tag].sensores
-    }
+    }*/
     
     func consultarServicio()
     {

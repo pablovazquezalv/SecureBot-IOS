@@ -56,6 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                datos.token = diccionario["tok"] as! String
                datos.rememberMe = diccionario["rmm"] as! Bool
                datos.signedRoute = diccionario["sgr"] as! String
+               datos.hasEnterprise = diccionario["het"] as! Bool
+               datos.isInProcess = diccionario["iip"] as! Bool
            } catch {
                print("Algo salió mal")
            }

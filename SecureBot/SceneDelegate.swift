@@ -54,7 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let ruta = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/Conf.plist"
         let urlArchivo = URL(fileURLWithPath: ruta)
         
-        let diccionario:[String:Any] = Dictionary(dictionaryLiteral: ("id", datos.id), ("name", datos.name), ("app", datos.ap_paterno), ("apm", datos.ap_materno), ("email", datos.email), ("phn", datos.phone_number), ("rol", datos.rol_id), ("tok", datos.token), ("rmm", datos.rememberMe), ("sgr", datos.signedRoute))
+        let diccionario:[String:Any] = Dictionary(dictionaryLiteral: ("id", datos.id), ("name", datos.name), ("app", datos.ap_paterno), ("apm", datos.ap_materno), ("email", datos.email), ("phn", datos.phone_number), ("rol", datos.rol_id), ("tok", datos.token), ("rmm", datos.rememberMe), ("sgr", datos.signedRoute), ("het", datos.hasEnterprise), ("iip", datos.isInProcess))
         do {
             let archivo = try PropertyListSerialization.data(fromPropertyList: diccionario, format: .xml, options: NSPropertyListWriteStreamError)
             try archivo.write(to: urlArchivo)

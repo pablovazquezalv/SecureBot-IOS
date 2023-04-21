@@ -18,6 +18,8 @@ class UserData: NSObject {
     var token: String
     var rememberMe: Bool
     var signedRoute: String
+    var hasEnterprise: Bool
+    var isInProcess: Bool
     static var userData: UserData!
     
     override init() {
@@ -31,6 +33,8 @@ class UserData: NSObject {
         token = ""
         rememberMe = false
         signedRoute = ""
+        hasEnterprise = false
+        isInProcess = false
     }
     
     static func sharedData()->UserData {
