@@ -19,6 +19,7 @@
 		886B5AED29F1D12D00E0CC62 /* carsrc-PhotoRoom.png-PhotoRoom.png in Resources */ = {isa = PBXBuildFile; fileRef = 886B5AEC29F1D12D00E0CC62 /* carsrc-PhotoRoom.png-PhotoRoom.png */; };
 		886B5AEF29F1D4EB00E0CC62 /* SensoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886B5AEE29F1D4EB00E0CC62 /* SensoresViewController.swift */; };
 		886B5AF629F1E84D00E0CC62 /* Snapchat Notificación - Efecto de Sonido_BZVsPIvJrDc.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 886B5AF529F1E84D00E0CC62 /* Snapchat Notificación - Efecto de Sonido_BZVsPIvJrDc.mp3 */; };
+		886B5AFB29F2589C00E0CC62 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886B5AFA29F2589C00E0CC62 /* Sensor.swift */; };
 		88AFCB3229E76E2A004260F3 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AFCB3129E76E2A004260F3 /* logo.png */; };
 		88BDDBC129E717DB00BDF086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBC029E717DB00BDF086 /* AppDelegate.swift */; };
 		88BDDBC329E717DB00BDF086 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDBC229E717DB00BDF086 /* SceneDelegate.swift */; };
@@ -68,6 +69,7 @@
 		886B5AEC29F1D12D00E0CC62 /* carsrc-PhotoRoom.png-PhotoRoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carsrc-PhotoRoom.png-PhotoRoom.png"; sourceTree = "<group>"; };
 		886B5AEE29F1D4EB00E0CC62 /* SensoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensoresViewController.swift; sourceTree = "<group>"; };
 		886B5AF529F1E84D00E0CC62 /* Snapchat Notificación - Efecto de Sonido_BZVsPIvJrDc.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Snapchat Notificación - Efecto de Sonido_BZVsPIvJrDc.mp3"; sourceTree = "<group>"; };
+		886B5AFA29F2589C00E0CC62 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		88AFCB3129E76E2A004260F3 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		88BDDBBD29E717DB00BDF086 /* SecureBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecureBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BDDBC029E717DB00BDF086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				882D841729F089930010BA6F /* User.swift */,
 				886B5AEA29F1CB3B00E0CC62 /* Carro.swift */,
+				886B5AFA29F2589C00E0CC62 /* Sensor.swift */,
 				88C5BD8D29F2177E0015E4E0 /* Empresa.swift */,
 			);
 			path = Models;
@@ -359,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88EFC59C29E7661A008FB20B /* TelefonoViewController.swift in Sources */,
+				886B5AFB29F2589C00E0CC62 /* Sensor.swift in Sources */,
 				88BDDBC529E717DB00BDF086 /* ViewController.swift in Sources */,
 				886B5AEF29F1D4EB00E0CC62 /* SensoresViewController.swift in Sources */,
 				88EFC59A29E76300008FB20B /* RegisterViewController.swift in Sources */,

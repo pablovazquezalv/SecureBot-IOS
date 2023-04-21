@@ -9,12 +9,12 @@ import UIKit
 
 class CarrosViewController: UIViewController {
     @IBOutlet weak var srcCarros: UIScrollView!
-    var carros: [Carro] = [Carro(name: "Almacen", descripcion: "Ver rutas"),Carro(name: "Linea 5", descripcion: "Ver maquinas")]
+    var carros:[Carro] = []
     let userData = UserData.sharedData()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dibujarPersonajes()
+        consultarServicio()
         hasEnterprise()
         isInProcess()
     }
@@ -24,7 +24,38 @@ class CarrosViewController: UIViewController {
             performSegue(withIdentifier: "sgNoEnterprise", sender: self)
         }
     }
-    
+    func consultarServicio()
+        {
+            let conexion = URLSession(configuration: .default)
+            let url = URL(string: "https://securebot.ninja/api/v1/verCarros")!
+            let token = userData.token
+            var urlRequest = URLRequest(url: url)
+            urlRequest.allHTTPHeaderFields = ["Authorization": "Bearer \(token)"]
+            
+            conexion.dataTask(with: urlRequest) {datos, respuesta, error in
+                
+                do{
+                    let json = try JSONSerialization.jsonObject(with: datos!,options: []) as? [Any]
+                    if let resultados = json {
+                        for carro in  resultados
+                        {
+                            if let datos = carro as? [String:Any]
+                            {
+                                self.carros.append(Carro(name: datos["nombre"] as! String, descripcion: datos["descripcion"] as! String))
+                                
+                            }
+                        }
+                        DispatchQueue.main.async {
+                            self.dibujarPersonajes()
+                        }
+                        
+                    }
+                }catch
+                {
+                    print("errores")
+                }
+            }.resume()
+        }
     func hasEnterprise() {
         let url = URL(string: "https://securebot.ninja/api/v1/user/company")!
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
@@ -88,11 +119,7 @@ class CarrosViewController: UIViewController {
         vc.sensores = carros[boton.tag].sensores
     }*/
     
-    func consultarServicio()
-    {
-    
-        
-    }
+  
     
 
     func dibujarPersonajes()
