@@ -9,12 +9,14 @@ import UIKit
 
 class Sensor: NSObject {
     var nombre = ""
+    var valor = ""
     
 
 
-    init(nombre: String)
+    init(nombre: String,valor:String)
     {
         self.nombre = nombre
+        self.valor = valor
     }
 
     override var description: String {
