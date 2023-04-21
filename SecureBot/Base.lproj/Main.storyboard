@@ -49,19 +49,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1681318669742.png" translatesAutoresizingMaskIntoConstraints="NO" id="PUY-m5-qPS">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OiL-wc-Z4D">
-                                <rect key="frame" x="20" y="113" width="374" height="582"/>
+                                <rect key="frame" x="20" y="113" width="353" height="582"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="M04-cp-PNb">
-                                        <rect key="frame" x="30" y="44.666666666666657" width="314" height="367.33333333333337"/>
+                                        <rect key="frame" x="30" y="44.666666666666657" width="293" height="367.33333333333337"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q4k-vw-G0a">
-                                                <rect key="frame" x="0.0" y="0.0" width="314" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="293" height="100"/>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bqM-bG-XDe">
-                                                <rect key="frame" x="0.0" y="113.00000000000003" width="314" height="34"/>
+                                                <rect key="frame" x="0.0" y="113.00000000000003" width="293" height="34"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -70,13 +70,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLc-8R-h2U">
-                                                <rect key="frame" x="0.0" y="160.00000000000003" width="314" height="50"/>
+                                                <rect key="frame" x="0.0" y="160.00000000000003" width="293" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mC9-Cq-fk6">
-                                                <rect key="frame" x="0.0" y="223.00000000000003" width="314" height="33.999999999999972"/>
+                                                <rect key="frame" x="0.0" y="223.00000000000003" width="293" height="33.999999999999972"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -85,13 +85,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85B-zl-HWa">
-                                                <rect key="frame" x="0.0" y="270" width="314" height="50"/>
+                                                <rect key="frame" x="0.0" y="270" width="293" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mF0-vX-EYs">
-                                                <rect key="frame" x="0.0" y="333" width="314" height="34.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="333" width="293" height="34.333333333333314"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34.329999999999998" id="JE7-G7-qVy"/>
@@ -132,7 +132,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FE-O9-wVh">
-                                        <rect key="frame" x="107.00000000000001" y="544" width="160.33333333333337" height="29.666666666666629"/>
+                                        <rect key="frame" x="96.333333333333329" y="544" width="160.33333333333337" height="29.666666666666629"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Olvide mi contraseña">
@@ -675,7 +675,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
-                                                            <action selector="changeEmail:" destination="A3y-g1-O4l" eventType="editingDidEnd" id="r0v-vw-y40"/>
+                                                            <action selector="changeEmail:" destination="A3y-g1-O4l" eventType="editingChanged" id="cD4-9I-n4c"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -692,13 +692,15 @@
                                                         <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
                                                         <connections>
                                                             <action selector="changePhone:" destination="A3y-g1-O4l" eventType="touchUpInside" id="yuk-wE-2Bu"/>
+                                                            <segue destination="Zw7-JH-45L" kind="presentation" identifier="sgCode" id="Y7R-nv-LcY"/>
                                                         </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T8A-b3-Rcn">
                                                         <rect key="frame" x="49" y="0.0" width="345" height="34.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="changeTel:" destination="A3y-g1-O4l" eventType="editingChanged" id="1P6-bZ-P1K"/>
                                                             <action selector="changeTel:" destination="A3y-g1-O4l" eventType="editingDidEnd" id="ubD-QK-flx"/>
                                                         </connections>
                                                     </textField>
@@ -980,6 +982,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="hKf-B1-p8f"/>
+        <segue reference="Y7R-nv-LcY"/>
         <segue reference="w1x-Cz-sNa"/>
     </inferredMetricsTieBreakers>
     <resources>

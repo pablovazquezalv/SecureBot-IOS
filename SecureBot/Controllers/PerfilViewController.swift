@@ -24,6 +24,9 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
     var userName = ""
     var apUser = ""
     var amUser = ""
+    var emailUser = ""
+    var phoneUser = ""
+    var maxLenghts = [UITextField: Int]()
     
     @IBOutlet weak var btncontraseña: UIButton!
     override func viewDidLoad() {
@@ -34,14 +37,13 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
         TFtelefono.delegate = self
         btncambiarCorreo.isEnabled = false
         btncambiarTelefono.isEnabled = false
+        maxLenghts[TFtelefono] = 10
         
         super.viewDidLoad()
     }
-  
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-
     }
     
     func diseño() {
@@ -88,6 +90,8 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
                             self.userName = name
                             self.apUser = ap_paterno
                             self.amUser = ap_materno
+                            self.emailUser = email
+                            self.phoneUser = phone_number
                         }
                     }
                 } catch {
@@ -107,11 +111,11 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
         
         let expresionRegular = "^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\\s]+$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", expresionRegular)
-
+        
         if !predicate.evaluate(with: value) {
             return true
         }
-
+        
         return nil
     }
     
@@ -123,11 +127,11 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
         
         let expresionRegular = "^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", expresionRegular)
-
+        
         if !predicate.evaluate(with: value) {
             return true
         }
-
+        
         return nil
     }
     
@@ -138,11 +142,11 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
         
         let expresionRegular = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", expresionRegular)
-
+        
         if !predicate.evaluate(with: value) {
             return true
         }
-                
+        
         return nil
     }
     
@@ -154,7 +158,7 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
         if value.count < 10 {
             return true
         }
-
+        
         return nil
     }
     
@@ -183,7 +187,7 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
         {
             return true
         }
-                
+        
         return nil
     }
     
@@ -266,7 +270,7 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel)
         
         alerta.addTextField { textField in
-           
+            
             textField.placeholder = "Ingresa tu nombre"
             textField.text = self.userName
         }
@@ -286,9 +290,11 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
         self.present(alerta, animated: true, completion: nil)
     }
     
-    @IBAction func changeEmail(_ sender: Any) {
+    
+    
+    @IBAction func changeEmail(_ sender: Any){
         if let email = TFcorreo.text {
-            if TFcorreo.text == email {
+            if  emailUser == email {
                 btncambiarCorreo.isEnabled = false
             } else {
                 btncambiarCorreo.isEnabled = true
@@ -296,17 +302,52 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    
-    @IBAction func changeTel(_ sender: Any)
-    {
-        
+    @IBAction func changeTel(_ sender: Any) {
+        if let phone = TFtelefono.text {
+            if  phoneUser == phone {
+                btncambiarTelefono.isEnabled = false
+            } else {
+                btncambiarTelefono.isEnabled = true
+            }
+        }
     }
-
+    
     @IBAction func changeCorreo(_ sender: Any) {
+        let alerta = UIAlertController(title: "Cambiar correo", message: "¿Estás seguro de que quieres cambiar tu correo? Si lo haces, no podrás cambiar tu cuenta hasta que verifiques tu nuevo correo.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Cambiar", style: .destructive) { [ weak self ] _ in
+            guard let self = self else { return }
+            updateEmail()
+            self.viewDidLoad()
+        }
+        
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel)
+        
+        alerta.addAction(cancel)
+        alerta.addAction(ok)
+        self.present(alerta, animated: true, completion: nil)
     }
     
     @IBAction func changePhone(_ sender: Any) {
+        let alerta = UIAlertController(title: "Cambiar teléfono", message: "¿Estás seguro de que quieres cambiar tu teléfono? Si lo haces, no podrás cambiar tu cuenta hasta que verifiques tu nuevo teléfono.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Cambiar", style: .destructive) { [ weak self ] _ in
+            guard let self = self else { return }
+            updatePhone()
+            self.viewDidLoad()
+        }
+        
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel)
+        
+        alerta.addAction(cancel)
+        alerta.addAction(ok)
+        self.present(alerta, animated: true, completion: nil)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLenght = maxLenghts[textField] ?? Int.max
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+    
+        return newString.length <= maxLenght
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -544,7 +585,210 @@ class PerfilViewController: UIViewController, UITextFieldDelegate {
             error.addAction(ok)
             self.present(error, animated: true)
             invalido = true
-         print("no entre")
+        }
+    }
+    
+    func updateEmail() {
+        let url = URL(string: "https://securebot.ninja/api/v1/user/email")!
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        request.httpMethod = "PUT"
+        var null = false
+        var invalido = false
+        
+        if let correo = TFcorreo.text {
+            if correo.count == 0 {
+                let error = UIAlertController(title: "Error", message: "No has proporcionado ningún email", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Aceptar", style: .default)
+                error.addAction(ok)
+                self.present(error, animated: true)
+                null = true
+            }
+        }
+        
+        let email = invalidEmail(TFcorreo.text!)
+        
+        if email == nil {
+            let correo = TFcorreo.text!
+              
+            let requestBody: [String: Any] = [
+                "email": correo
+            ]
+            
+            do {
+                let token = userData.token
+                let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+                request.httpBody = jsonData
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            } catch {
+                print("Error al convertir el cuerpo del request a JSON: \(error)")
+                return
+            }
+              
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Error en el request: \(error)")
+                    return
+                }
+                
+                guard let data = data else {
+                    print("No se recibió data en la respuesta")
+                    return
+                }
+                
+                if !invalido || !null {
+                    if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                        do {
+                            let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                            print("Respuesta: \(responseJSON)")
+                            
+                            DispatchQueue.main.async {
+                                self.userData.token = ""
+                                self.userData.rememberMe = false
+                                self.performSegue(withIdentifier: "sgLogout", sender: self)
+                            }
+                        }
+                        catch {
+                            print("Error al convertir la respuesta a JSON: \(error)")
+                        }
+                    }
+                    else {
+                        do {
+                            let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                            print("Respuesta: \(responseJSON)")
+                            
+                            if let jsonDict = responseJSON as? [String: Any],
+                               let message = jsonDict["message"] as? String {
+                                DispatchQueue.main.async {
+                                    let error = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                                    let ok = UIAlertAction(title: "Aceptar", style: .default)
+                                    error.addAction(ok)
+                                    self.present(error, animated: true)
+                                }
+                            } else {
+                                DispatchQueue.main.async {
+                                    let error = UIAlertController(title: "Error", message: "El correo electrónico ya está en uso", preferredStyle: .alert)
+                                    let ok = UIAlertAction(title: "Aceptar", style: .default)
+                                    error.addAction(ok)
+                                    self.present(error, animated: true)
+                                    self.viewDidLoad()
+                                }
+                            }
+                        } catch {
+                            print("Error al convertir la respuesta a JSON: \(error)")
+                        }
+                    }
+                }
+            }
+            
+            task.resume()
+        } else {
+            let error = UIAlertController(title: "Error", message: "Correo electrónico inválido.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Aceptar", style: .default)
+            error.addAction(ok)
+            self.present(error, animated: true)
+            invalido = true
+            self.viewDidLoad()
+        }
+    }
+    
+    func updatePhone() {
+        let url = URL(string: "https://securebot.ninja/api/v1/user/phone")!
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        request.httpMethod = "PUT"
+        var null = false
+        var invalido = false
+        
+        if let phone = TFtelefono.text {
+            if phone.count == 0 {
+                let error = UIAlertController(title: "Error", message: "No has proporcionado ningún teléfono", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Aceptar", style: .default)
+                error.addAction(ok)
+                self.present(error, animated: true)
+                null = true
+                self.viewDidLoad()
+            }
+        }
+        
+        let telefono = invalidNumber(TFtelefono.text!)
+        
+        if telefono == nil {
+            let phone = TFtelefono.text!
+              
+            let requestBody: [String: Any] = [
+                "phone_number": phone
+            ]
+            
+            do {
+                let token = userData.token
+                let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+                request.httpBody = jsonData
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            } catch {
+                print("Error al convertir el cuerpo del request a JSON: \(error)")
+                return
+            }
+              
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Error en el request: \(error)")
+                    return
+                }
+                
+                guard let data = data else {
+                    print("No se recibió data en la respuesta")
+                    return
+                }
+                
+                if !invalido || !null {
+                    if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                        do {
+                            let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                            print("Respuesta: \(responseJSON)")
+                            
+                            if let jsonDict = responseJSON as? [String: Any],
+                               let signedRoute = jsonDict["url"] as? String {
+                                DispatchQueue.main.async {
+                                    self.userData.token = ""
+                                    self.userData.rememberMe = false
+                                    self.userData.signedRoute = signedRoute
+                                    self.performSegue(withIdentifier: "sgCode", sender: self)
+                                }
+                            }
+                        }
+                        catch {
+                            print("Error al convertir la respuesta a JSON: \(error)")
+                        }
+                    } else {
+                        do {
+                            let responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+                            print("Respuesta: \(responseJSON)")
+                            
+                            if let jsonDict = responseJSON as? [String: Any],
+                               let message = jsonDict["message"] as? String {
+                                DispatchQueue.main.async {
+                                    let error = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                                    let ok = UIAlertAction(title: "Aceptar", style: .default)
+                                    error.addAction(ok)
+                                    self.present(error, animated: true)
+                                }
+                            }
+                        } catch {
+                            print("Error al convertir la respuesta a JSON: \(error)")
+                        }
+                    }
+                }
+            }
+            
+            task.resume()
+        } else {
+            let error = UIAlertController(title: "Error", message: "Teléfono inválido. Recuerda que debe contener 10 dígitos.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Aceptar", style: .default)
+            error.addAction(ok)
+            self.present(error, animated: true)
+            invalido = true
+            self.viewDidLoad()
         }
     }
 }
