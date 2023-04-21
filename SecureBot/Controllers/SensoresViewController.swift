@@ -134,6 +134,16 @@ class SensoresViewController: UIViewController {
             fecha.adjustsFontSizeToFitWidth = true
             fecha.minimumScaleFactor = 0.5
             
+            let spinner = UIProgressView(progressViewStyle: .default)
+            spinner.center = self.view.center
+            spinner.progressTintColor = UIColor.red
+            spinner.trackTintColor = UIColor.lightGray
+            let valor = Float(sensor[i].valor) ?? 0.0
+            let progress = valor / 100.0
+            spinner.progress = progress
+                        
+            spinner.center = CGPoint(x: vista.frame.width - spinner.frame.width/2 - 5, y: vista.frame.height/2)
+                        vista.addSubview(spinner)
            
             
             vista.addSubview(nombre)
