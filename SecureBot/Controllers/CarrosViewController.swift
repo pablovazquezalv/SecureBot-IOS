@@ -9,7 +9,7 @@ import UIKit
 
 class CarrosViewController: UIViewController {
     @IBOutlet weak var srcCarros: UIScrollView!
-    var carros:[Carro] = []
+    var carros: [Carro] = []
     let userData = UserData.sharedData()
 
     override func viewDidLoad() {
@@ -24,38 +24,34 @@ class CarrosViewController: UIViewController {
             performSegue(withIdentifier: "sgNoEnterprise", sender: self)
         }
     }
-    func consultarServicio()
-        {
-            let conexion = URLSession(configuration: .default)
-            let url = URL(string: "https://securebot.ninja/api/v1/verCarros")!
-            let token = userData.token
-            var urlRequest = URLRequest(url: url)
-            urlRequest.allHTTPHeaderFields = ["Authorization": "Bearer \(token)"]
+    
+    func consultarServicio() {
+        let conexion = URLSession(configuration: .default)
+        let url = URL(string: "https://securebot.ninja/api/v1/verCarros")!
+        let token = userData.token
+        var urlRequest = URLRequest(url: url)
+        urlRequest.allHTTPHeaderFields = ["Authorization": "Bearer \(token)"]
             
-            conexion.dataTask(with: urlRequest) {datos, respuesta, error in
-                
-                do{
-                    let json = try JSONSerialization.jsonObject(with: datos!,options: []) as? [Any]
-                    if let resultados = json {
-                        for carro in  resultados
-                        {
-                            if let datos = carro as? [String:Any]
-                            {
+        conexion.dataTask(with: urlRequest) {datos, respuesta, error in
+                 do {
+                     let json = try JSONSerialization.jsonObject(with: datos!,options: []) as? [Any]
+                     if let resultados = json {
+                         for carro in resultados {
+                            if let datos = carro as? [String:Any] {
                                 self.carros.append(Carro(name: datos["nombre"] as! String, descripcion: datos["descripcion"] as! String))
-                                
                             }
                         }
+                         
                         DispatchQueue.main.async {
-                            self.dibujarPersonajes()
+                            self.dibujarCarritos()
                         }
-                        
                     }
-                }catch
-                {
-                    print("errores")
+                } catch {
+                     print("errores")
                 }
             }.resume()
         }
+    
     func hasEnterprise() {
         let url = URL(string: "https://securebot.ninja/api/v1/user/company")!
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
@@ -118,12 +114,8 @@ class CarrosViewController: UIViewController {
         
         vc.sensores = carros[boton.tag].sensores
     }*/
-    
-  
-    
 
-    func dibujarPersonajes()
-    {
+    func dibujarCarritos() {
            var y = 10
            for i in 0..<carros.count {
                let vista = UIView(frame: CGRect(x: 10, y: y, width: Int(srcCarros.frame.width - 20), height: 80))
@@ -131,7 +123,6 @@ class CarrosViewController: UIViewController {
                
                let imagen = UIImageView(frame: CGRect(x: 5, y: 25, width: 76.6, height: 45))
                imagen.image = UIImage(named: "carsrc-PhotoRoom.png-PhotoRoom.png")
-              
                
                let lblNombre = UILabel(frame: CGRect(x: 100, y: 5, width: Int(vista.frame.width - 105), height: 30))
                lblNombre.text = carros[i].name
@@ -143,8 +134,6 @@ class CarrosViewController: UIViewController {
                lblDescripcion.text = carros[i].descripcion
                lblDescripcion.font = .systemFont(ofSize: 17)
                
-        
-               
                let boton = UIButton(frame: CGRect(x: 0, y: 0, width: vista.frame.width, height: vista.frame.height))
                boton.tag = i
                boton.addTarget(self, action: #selector(seleccionarPersonaje(sender:)), for: .touchDown)
@@ -152,15 +141,15 @@ class CarrosViewController: UIViewController {
                vista.addSubview(imagen)
                vista.addSubview(lblNombre)
                vista.addSubview(lblDescripcion)
-             
                vista.addSubview(boton)
                srcCarros.addSubview(vista)
                y += 90
            }
+        
            srcCarros.contentSize = CGSize(width: 0, height: y)
        }
-    @objc func seleccionarPersonaje(sender: UIButton)
-    {
+    
+    @objc func seleccionarPersonaje(sender: UIButton) {
         print(carros[sender.tag].sensores)
         self.performSegue(withIdentifier: "sgSensores", sender: sender)
     }
