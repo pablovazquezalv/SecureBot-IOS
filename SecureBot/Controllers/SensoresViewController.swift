@@ -53,7 +53,7 @@ class SensoresViewController: UIViewController {
      
         func dibujarSensores() {
         var y = 10
-        for i in 0..< sensor.count {
+        for i in 0..<sensor.count {
             let vista = UIView(frame: CGRect(x: 10, y: y, width: Int(srcSensores.frame.width) - 20, height: 70))
             vista.backgroundColor = .white
             
